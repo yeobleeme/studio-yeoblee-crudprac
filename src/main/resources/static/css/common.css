@@ -428,6 +428,15 @@ main {
     }
 }
 
+.btn-submit:hover {color: blue;}
+
+.rounded-input {
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 5px 10px;
+  text-align: center;
+}
+
 .header__title {
     border: 1px solid var(--color-text);
     border-radius: calc(var(--lh-main) + var(--pt) + var(--pb));
@@ -1353,7 +1362,7 @@ main {
     word-spacing: -.005em;
     border: 1px solid var(--color-text);
     border-radius: calc(var(--lh-h4) + .35em);
-    top: var(--insta-position);
+    top: 18%;
     transform: translateX(-50%) rotate(-5.5deg);
     display: flex;
     left: 66%;
@@ -1372,7 +1381,7 @@ main {
 }
 
 .contact__link:hover {
-    background-color: var(--color-bg)
+  background-color: #0052FF
 }
 
 .contact__credits {

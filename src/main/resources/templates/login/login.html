@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Studio Yeoblee</title>
+<title>Sign in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -12,6 +12,7 @@
 <style>
 *{font-family: 'Roboto', sans-serif;}
 </style>
+
 </head>
 <body>
 	<div id="__next" data-reactroot>
@@ -41,47 +42,47 @@
 			</nav>
 		</header>
 		
-		<main class="main" style="--background: rgb (255,255,255); text-align:center;">
-			<section class="home" id="home" data-background="f8d9d2">
-				<div class="home__title hidden-mobile">
-					<h1><span style="color:#0052FF;">* <br /></span>
-					YEOBLEE
+		<main class="main" style="--background: rgb (255,255,255);">
+			<section class="info" id="informations" data-background="f8d9d2">
+				<div class="info__inner">
+					<p class="info__text" style="text-align:center;">
 					<br />
+						<span style="color:#0052FF;">*</span>
+						<br />
+						Sign In
+						<br />
+						<br />
+					</p>
 					
-					</h1>
-				</div>
-				
-				
-				<div class="contact__link" style="top:25%; left:16%">
+		<div class="container" align="center"><br>
+			<form th:action="login" method="post">
+ 				<div class="">
+					<input type="text" class="rounded-input" name="id" placeholder="USER ID" value="" /> <br /> <br />
+					<input type="password" class="rounded-input" name="password"  placeholder="PASSWORD" value="" /> <br /> <br /> <br />
+					<input type="submit" class="btn-submit" value="Sign In" style="border: none; background:#fff; font-weight: bold"> &nbsp
+					<a href="insertMember" class="btn-submit" style="border: none; font-weight: bold">Sign Up</a> &nbsp
+				</div>	
+			</form>
+			</div>
+			</div>
+			
+				<div class="contact__link" style="top:40%; left:12%">
 					<a href="https://instagram.com/yeoblee" target="_blank" rel="noreferrer">
 					@<!-- -->yeoblee
 					</a>
 				</div>
 				
 			</section>
-			
-			
-			
 		</main>
 		
-		<footer id="foot" style="color:grey; text-align:center;">
-            <p class="copyright">copyright © 2023 Yeoblee Inc. All rights reserved.
-            <br />&nbsp</p>
-        </footer>
-		
-		
-		
+	<footer id="foot" style="color:grey; text-align:center;">
+		<br />
+		<br />
+        <p class="copyright">copyright © 2023 Yeoblee Inc. All rights reserved.
+    	<br />&nbsp</p>
+    </footer>
+    
 	</div>
-	
-	
-	
+
 </body>
 </html>
-
-
-
-
-
-
-
-

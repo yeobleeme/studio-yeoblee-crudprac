@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Sign in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<link href="/css/common.css" rel="stylesheet" />
+<script src="/js/index.js" defer></script>
+<script src="/js/app.js" defer></script>
+<style>
+*{font-family: 'Roboto', sans-serif;}
+</style>
+
+</head>
+<body>
+	<div id="__next" data-reactroot>
+		<header class="header">
+			<div class="header__section">
+				<div class="header__title">
+					<a href="/">&nbspStudio Yeoblee&nbsp</a>
+				</div>
+				<div class="header__menu">
+					<ul class="header__menu__list">
+						<li class="header__menu__item active">
+						<span>&nbspHELLO&nbsp&nbsp&nbsp안녕&nbsp&nbsp&nbspBonjour
+						&nbsp&nbspこんにちは&nbsp&nbsp&nbspHola&nbsp&nbsp&nbspGetenTag&nbsp</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+			<nav class="menu">
+				<ul class="menu__list">
+					<li class="menu__item"><a href="info" class="menu_link">&nbspInformations&nbsp</a></li>&nbsp
+					<li class="menu__item"><a href="works" class="menu_link">&nbspWorks&nbsp</a></li>&nbsp
+					<li class="menu__item"><a href="contact" class="menu_link">&nbspContact&nbsp</a></li>&nbsp
+					<li class="menu__item"><a href="login" class="menu_link">&nbspSign In&nbsp</a></li>&nbsp
+					<li class="menu__item"><a href="onlineshop" class="menu_link">&nbspOnline Shop&nbsp</a></li>
+				</ul>
+			</nav>
+		</header>
+		
+		<main class="main" style="--background: rgb (255,255,255);">
+			<section class="info" id="informations" data-background="f8d9d2">
+				<div class="info__inner">
+					<p class="info__text" style="text-align:center;">
+						<br />
+					    &nbsp&nbsp&nbsp Sign Up <span style="color:#0052FF;">+</span>  <br />
+						<br />
+					</p>
+					
+		<div class="container" align="center"><br>
+		
+			<form th:action="insertMember" method="post">
+			
+ 				<div class="">
+					<input type="text" class="rounded-input" name="id" placeholder="I D" value="" /> <br /> <br />
+					<input type="text" class="rounded-input" name="name" placeholder="NAME" value="" /> <br /> <br />
+					<input type="password" class="rounded-input" name="password"  placeholder="PW" value="" /> <br /> <br />
+					<input type="text" class="rounded-input" name="tel" placeholder="TEL" value="" /> <br /> <br />
+					<input type="text" class="rounded-input" name="addr" placeholder="ADDR" value="" /> <br /> <br /> <br />
+					<input type="submit" class="btn-submit" value="Submit" style="border: none; background:#fff; font-weight: bold"> &nbsp
+				</div>	
+				
+				
+			</form>
+			</div>
+			</div>
+			
+			<div class="contact__link" style="top:38%; left:12%; transform: rotate( -12deg )">
+				<a href="" target="_blank" rel="noreferrer">
+				<!-- -->welcome !
+				</a>
+			</div>
+			
+			<div class="contact__link" style="top:57%; left:14%; transform: rotate( -6deg )">
+				<a href="" target="_blank" rel="noreferrer">
+				&nbsp<!-- -->join us !
+				</a>
+			</div>
+			
+				
+			</section>
+		</main>
+		
+	<footer id="foot" style="color:grey; text-align:center;">
+		<br />
+		<br />
+        <p class="copyright">copyright © 2023 Yeoblee Inc. All rights reserved.
+    	<br />&nbsp</p>
+    </footer>
+    
+	</div>
+
+</body>
+</html>
