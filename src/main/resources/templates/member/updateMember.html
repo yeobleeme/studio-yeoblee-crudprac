@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Sign in</title>
+<title>Modify Page</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -46,43 +46,51 @@
 			<section class="info" id="informations" data-background="f8d9d2">
 				<div class="info__inner">
 					<p class="info__text" style="text-align:center;">
-					<br />
-						<span style="color:#0052FF;">*</span>
 						<br />
-						Sign In
-						<br />
+					    &nbsp&nbsp&nbsp Modify <span style="color:#0052FF;">+</span>  <br />
 						<br />
 					</p>
 					
 		<div class="container" align="center"><br>
-			<form th:action="login" method="post">
+		
+			<form th:action="updateMember" method="post">
+			
  				<div class="">
-					<input type="text" class="rounded-input" name="id" placeholder="USER ID" value="" /> <br /> <br />
-					<input type="password" class="rounded-input" name="password"  placeholder="PASSWORD" value="" /> <br /> <br /> <br />
-					<input type="submit" class="btn-submit" value="Sign In" style="border: none; background:#fff; font-weight: bold"> &nbsp&nbsp&nbsp
-					<a href="insertMember" class="btn-submit" style="border: none; font-weight: bold">Sign Up</a>
+					<input type="text" class="rounded-input" name="id" th:value="${member.id}" placeholder="USER ID" readonly/> <br /> <br />
+					<input type="text" class="rounded-input" name="name" th:value="${member.name}" placeholder="NAME"/> <br /> <br />
+					<input type="password" class="rounded-input" name="password" th:value="${member.password}" placeholder="PASSWORD" /> <br /> <br />
+					<input type="text" class="rounded-input" name="telephone" th:value="${member.telephone}" placeholder="TELEPHONE"/> <br /> <br />
+					<input type="text" class="rounded-input" name="role" placeholder="AUTHORITY"/> <br /> <br /> <br />
+					
+					<input type="submit" class="btn-submit" value="Modify" style="border: none; background:#fff; font-weight: bold"> &nbsp&nbsp
+					
+					<a th:href="@{/deleteMember(id=${member.id},
+												curPage=${session.pagingInfo.curPage},
+												rowSizePerPage=${session.pagingInfo.rowSizePerPage},
+												searchType=${session.pagingInfo.searchType},
+												searchWord=${session.pagingInfo.searchWord})}"
+						 class="btn-submit" style="border: none; font-weight: bold">Delete</a> &nbsp
+						 
+			   <!-- <a th:href="@{/getMemberList(curPage=${session.pagingInfo.curPage},
+												 rowSizePerPage=${session.pagingInfo.rowSizePerPage},
+												 searchType=${session.pagingInfo.searchType},
+												 searchWord=${session.pagingInfo.searchWord})}" 
+						 class="btn-submit" style="border: none; font-weight: bold">Back</a> -->
 				</div>	
+				
+				
 			</form>
 			</div>
+			
 			</div>
 			
-				<div class="contact__link" style="top:35%; left:12%; transform: rotate( -12deg )">
-				<a href="https://instagram.com/yeoblee" target="_blank" rel="noreferrer">
-				@<!-- -->yeoblee
-				</a>
-			</div>
-			
-			<div class="contact__link" style="top:55%; left:15%; transform: rotate( -6deg )">
-				<a href="insertMember" target="" rel="noreferrer">
-				<!-- -->Sign Up
-				</a>
-			</div>
 			
 			<div class="admin_page" style="top:96%; left:93%">
-					<a href="admin" target="" rel="noreferrer">
-					<!-- -->Admin
-					</a>
-				</div>
+				<a href="admin" target="" rel="noreferrer">
+				<!-- -->Admin
+				</a>
+			</div>
+			
 				
 			</section>
 		</main>

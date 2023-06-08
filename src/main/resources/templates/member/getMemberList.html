@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Member List</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<link href="/css/common.css" rel="stylesheet" />
+<script src="/js/index.js" defer></script>
+<script src="/js/app.js" defer></script>
+<style>
+*{font-family: 'Roboto', sans-serif;}
+</style>
+<script th:inline="javascript">
+ function showConfirm(message) {return confirm(message);}
+</script>
+</head>
+<body>
+	<div id="__next" data-reactroot>
+		<header class="header">
+			<div class="header__section">
+				<div class="header__title">
+					<a href="/">&nbspStudio Yeoblee&nbsp</a>
+				</div>
+				<div class="header__menu">
+					<ul class="header__menu__list">
+						<li class="header__menu__item active">
+						<span>&nbspHELLO&nbsp&nbsp&nbsp안녕&nbsp&nbsp&nbspBonjour
+						&nbsp&nbspこんにちは&nbsp&nbsp&nbspHola&nbsp&nbsp&nbspGetenTag&nbsp</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+			<nav class="menu">
+				<ul class="menu__list">
+					<li class="menu__item"><a href="info" class="menu_link">&nbspInformations&nbsp</a></li>&nbsp
+					<li class="menu__item"><a href="works" class="menu_link">&nbspWorks&nbsp</a></li>&nbsp
+					<li class="menu__item"><a href="contact" class="menu_link">&nbspContact&nbsp</a></li>&nbsp
+					<li class="menu__item"><a href="login" class="menu_link">&nbspSign In&nbsp</a></li>&nbsp
+					<li class="menu__item"><a href="onlineshop" class="menu_link">&nbspOnline Shop&nbsp</a></li>
+				</ul>
+			</nav>
+		</header>
+		
+		<main class="main" style="--background: rgb (255,255,255);">
+			<section class="info" id="informations" data-background="f8d9d2">
+				<div class="info__inner">
+					<p class="info__text" style="text-align:center;">
+						<br />
+					    Member List <span style="color:#0052FF;">+</span>&nbsp <br />
+						<br />
+					</p>
+					
+		<div class="" align="center">		
+		  <div class="">
+		    <table class="" style="text-align:left; width:70%;">
+		      <thead class="" style="height: 52px">
+		        <th style="width: 5%;">NO</th>
+		        <th style="width: 10%;">ID</th>
+		        <th style="width: 13%;">NAME</th>
+		        <th style="width: 13%;">TEL</th>
+		        <th style="width: 10%;">AUTHORITY</th>
+		        <th style="width: 7%; text-align: center;">DELETE</th>
+		      </thead>
+		      <tbody>
+		        <tr class="member_list_text" th:each="member, state : ${pagedResult.getContent()}" style="height: 35px">
+		          <td th:text="${state.count + (cp * ps)}"></td>
+		     	  <td><a th:href="@{/updateMember(id=${member.id})}" th:text="${member.id}"></a></td>
+		     <!-- <td th:text="${member.name}"></td>
+		          <td th:text="${member.telephone}"></td>
+		          <td th:text="${member.role}"></td> -->
+		     	  <td><a th:href="@{/updateMember(id=${member.id})}" th:text="${member.name}"></a></td>
+		          <td><a th:href="@{/updateMember(id=${member.id})}" th:text="${member.telephone}"></a></td>
+		          <td><a th:href="@{/updateMember(id=${member.id})}" th:text="${member.role}"></a></td>
+		          <td style="text-align: center;"> 
+  				  <a th:href="@{/deleteMember(id=${member.id})}" 
+  				  	 th:onclick="return showConfirm('Are you sure to delete this member?')">
+  				  	 <span class="material-symbols-outlined">delete</span>
+  				  </a>
+				  </td>
+		        </tr>
+		      </tbody>
+		    </table>
+		  </div>	
+		</div>
+		
+		
+	
+	</div>		
+			
+			
+			<div class="admin_page" style="top:96%; left:93%">
+				<a href="admin" target="" rel="noreferrer">
+				<!-- -->Admin
+				</a>
+			</div>
+			
+				
+			</section>
+		</main>			
+				
+				
+		<footer id="foot" style="color:grey; text-align:center;">
+		<br /><br /><br />
+            <p class="copyright">copyright © 2023 Yeoblee Inc. All rights reserved.
+            <br />&nbsp</p>
+        </footer>
+		
+	</div>
+
+</body>
+</html>
+
+
+
+
+

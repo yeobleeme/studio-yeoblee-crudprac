@@ -12,7 +12,9 @@
 <style>
 *{font-family: 'Roboto', sans-serif;}
 </style>
-
+<script>
+ function showCongratulations() {alert("Thank you for join our membership!");return true;}
+</script>
 </head>
 <body>
 	<div id="__next" data-reactroot>
@@ -53,31 +55,38 @@
 					
 		<div class="container" align="center"><br>
 		
-			<form th:action="insertMember" method="post">
+			<form th:action="insertMember" method="post" onsubmit="return showCongratulations()">
 			
  				<div class="">
-					<input type="text" class="rounded-input" name="id" placeholder="I D" value="" /> <br /> <br />
+					<input type="text" class="rounded-input" name="id" placeholder="USER ID" value="" /> <br /> <br />
 					<input type="text" class="rounded-input" name="name" placeholder="NAME" value="" /> <br /> <br />
-					<input type="password" class="rounded-input" name="password"  placeholder="PW" value="" /> <br /> <br />
-					<input type="text" class="rounded-input" name="tel" placeholder="TEL" value="" /> <br /> <br />
-					<input type="text" class="rounded-input" name="addr" placeholder="ADDR" value="" /> <br /> <br /> <br />
+					<input type="password" class="rounded-input" name="password"  placeholder="PASSWORD" value="" /> <br /> <br />
+					<input type="text" class="rounded-input" name="telephone" placeholder="TELEPHONE" value="" /> <br /> <br />
+					<input type="text" class="rounded-input" name="role" placeholder="REGULAR" readonly /> <br /> <br /> <br />
 					<input type="submit" class="btn-submit" value="Submit" style="border: none; background:#fff; font-weight: bold"> &nbsp
 				</div>	
 				
 				
 			</form>
 			</div>
+			
 			</div>
 			
 			<div class="contact__link" style="top:38%; left:12%; transform: rotate( -12deg )">
-				<a href="" target="_blank" rel="noreferrer">
-				<!-- -->welcome !
+				<a href="" target="" rel="noreferrer">
+				<!-- -->welcome
 				</a>
 			</div>
 			
 			<div class="contact__link" style="top:57%; left:14%; transform: rotate( -6deg )">
-				<a href="" target="_blank" rel="noreferrer">
+				<a href="" target="" rel="noreferrer">
 				&nbsp<!-- -->join us !
+				</a>
+			</div>
+			
+			<div class="admin_page" style="top:96%; left:93%">
+				<a href="admin" target="" rel="noreferrer">
+				<!-- -->Admin
 				</a>
 			</div>
 			

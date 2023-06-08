@@ -523,6 +523,39 @@ main {
     border-radius: 0
 }
 
+.admin_page {
+    border: none;
+    position: absolute;
+    z-index: 8;
+    display: flex;
+    cursor: pointer;
+    border-radius: 0
+}
+
+.admin_page:hover {
+	background-color: #0052FF
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 600,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+.material-symbols-outlined:hover {
+  color: red;
+}
+
+.member_list_text a:hover {
+  color: #0052FF;
+}
+
+.admin_menu:hover {
+  color: #0052FF;
+}
+
 .header__menu__item.active {
     background-color: var(--color-text)
 }
@@ -747,6 +780,8 @@ main {
         pointer-events: auto
     }
 }
+
+
 
 .home__slideshow {
     height: var(--home-slideshow-height);
