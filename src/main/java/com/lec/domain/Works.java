@@ -21,7 +21,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @Entity
-public class Board {
+public class Works {
 	
 	@Id @GeneratedValue
 	private Long seq;
@@ -44,3 +44,9 @@ public class Board {
 	@Transient
 	private MultipartFile uploadFile;	
 }
+
+
+
+
+
+

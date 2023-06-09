@@ -79,6 +79,7 @@ public class MemberController {
 		if(member.getId() == null) {
 			return "redirect:login";
 		}
+		member.setRole(member.getRole() != "" ? "ADMIN" : "USER");
 		memberService.insertMember(member);
 		
 		return "login/login";

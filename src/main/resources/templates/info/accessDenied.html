@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Informations</title>
+<title>Sign in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -12,6 +12,7 @@
 <style>
 *{font-family: 'Roboto', sans-serif;}
 </style>
+
 </head>
 <body>
 	<div id="__next" data-reactroot>
@@ -38,55 +39,51 @@
 					<li class="menu__item">
 					<a th:href="@{/login}" class="menu_link" th:if="${session.member == null}">&nbspSign In&nbsp</a>
        				<a th:href="@{/logout}" class="menu_link" th:if="${session.member != null}">&nbspSign Out&nbsp</a>
-					</li>&nbsp
+					</li>&nbsp					
 					<li class="menu__item"><a href="onlineshop" class="menu_link">&nbspOnline Shop&nbsp</a></li>
 				</ul>
 			</nav>
 		</header>
-
-	<main class="main" style="--background: rgb (255,255,255);">
+		
+		<main class="main" style="--background: rgb (255,255,255);">
 			<section class="info" id="informations" data-background="f8d9d2">
 				<div class="info__inner">
-					<article class="info__text">
-						<br />
-						Studio Yeoblee <br />
-						<br />
-					    &nbsp<span style="color:#0052FF;">*</span> 
-					    &nbsp<span style="color:#0052FF;">*</span> <br />
-					    <br />
-						provide corporate and organizational <br />
-						clients with the highest quality management resources through <span style="color:#0052FF;">DESIGN</span>. <br />
+					<p class="info__text" style="text-align:center;">
+					<br />&nbsp <br />
+						<span style="color:#0052FF">Access Denied</span>
 						<br />
 						<br />
-					</article>
-				</div>
+						You have no authority.
+						<br />
+						<br />
+					</p>
+					
+		
+			</div>
+			
 				
-				
-				<div class="contact__link" style="top:24%; left:55%">
-					<a href="https://instagram.com/yeoblee" target="_blank" rel="noreferrer">
-					@<!-- -->yeoblee
-					</a>
-				</div>
-				
-				<div class="admin_page" style="top:96%; left:93%">
-    				<a href="admin" target="" rel="noreferrer">Admin</a>
-				</div>
-				
+			
+			<div class="contact__link" style="top:76%; left:44%; transform: rotate( -5deg )">
+				<a href="/" target="" rel="noreferrer" style="color:">
+				<!-- -->Home
+				</a>
+			</div>
+			
+			<div class="admin_page" style="top:96%; left:93%" th:if="${isAdmin}">
+    			<a href="admin" target="" rel="noreferrer">Admin</a>
+			</div>
 				
 			</section>
 		</main>
 		
-		<footer id="foot" style="color:grey; text-align:center;">
-            <p class="copyright">copyright © 2023 Yeoblee Inc. All rights reserved.
-            <br />&nbsp</p>
-        </footer>
-		
-		</div>
+	<footer id="foot" style="color:grey; text-align:center;">
+		<br />
+		<br />
+        <p class="copyright">copyright © 2023 Yeoblee Inc. All rights reserved.
+    	<br />&nbsp</p>
+    </footer>
+    
+	</div>
 
 </body>
 </html>
-
-
-
-
-

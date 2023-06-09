@@ -3,8 +3,6 @@ package com.lec.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import lombok.Getter;
-
 @Controller
 public class ContactController {
 	
@@ -13,5 +11,9 @@ public class ContactController {
 		return "contact/contact";
 	}
 	
+	@GetMapping("/")
+	public String index() {
+		return "index";
+	}
 
 }

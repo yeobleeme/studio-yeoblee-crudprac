@@ -6,6 +6,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <link href="/css/common.css" rel="stylesheet" />
 <script src="/js/index.js" defer></script>
 <script src="/js/app.js" defer></script>
@@ -35,8 +36,10 @@
 					<li class="menu__item"><a href="info" class="menu_link">&nbspInformations&nbsp</a></li>&nbsp
 					<li class="menu__item"><a href="works" class="menu_link">&nbspWorks&nbsp</a></li>&nbsp
 					<li class="menu__item"><a href="contact" class="menu_link">&nbspContact&nbsp</a></li>&nbsp
-					<li class="menu__item"><a href="login" class="menu_link">&nbspSign In&nbsp</a></li>&nbsp
-					<li class="menu__item"><a href="login" class="menu_link">&nbspSign In&nbsp</a></li>&nbsp
+					<li class="menu__item">
+					<a th:href="@{/login}" class="menu_link" th:if="${session.member == null}">&nbspSign In&nbsp</a>
+       				<a th:href="@{/logout}" class="menu_link" th:if="${session.member != null}">&nbspSign Out&nbsp</a>
+					</li>&nbsp
 					<li class="menu__item"><a href="onlineshop" class="menu_link">&nbspOnline Shop&nbsp</a></li>
 				</ul>
 			</nav>
@@ -47,7 +50,7 @@
 				<div class="info__inner" align="center">
 					<p class="info__text">
 						<br />
-						<span style="color:#0052FF;">*</span> <br /><br />
+						<span style="color:#0052FF;">ⓐ ⓓ ⓜ ⓘ ⓝ</span> <br /><br />
 						<a href="getMemberList" class="admin_menu">Member</a> <br />
 						<a href=""></a> <br />
 						<a href="" class="admin_menu">Post</a>
@@ -58,9 +61,7 @@
 		</main>
 		
 		<div class="admin_page" style="top:96%; left:93%">
-			<a href="admin" target="" rel="noreferrer">
-			<!-- -->Admin
-			</a>
+    		<a href="admin" target="" rel="noreferrer">Admin</a>
 		</div>
 		
 		<footer id="foot" style="color:grey; text-align:center;">
