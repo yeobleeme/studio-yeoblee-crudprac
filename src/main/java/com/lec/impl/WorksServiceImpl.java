@@ -45,6 +45,7 @@ public class WorksServiceImpl implements WorksService {
 	@Override
 	public void insertWorks(Works works) {
 		worksRepository.save(works);
+		worksRepository.updateLastSeq(0L, 0L, works.getSeq());
 	}
 
 	@Override
@@ -59,6 +60,11 @@ public class WorksServiceImpl implements WorksService {
 	@Override
 	public void deleteWorks(Works works) {
 		worksRepository.deleteById(works.getSeq());
+	}
+
+	@Override
+	public int updateReadCount(Works works) {
+		return worksRepository.updateReadCount(works.getSeq());
 	}
 
 }

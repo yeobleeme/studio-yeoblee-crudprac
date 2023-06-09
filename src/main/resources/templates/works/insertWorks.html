@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Sign in</title>
+<title>Add Works</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -12,7 +12,9 @@
 <style>
 *{font-family: 'Roboto', sans-serif;}
 </style>
-
+<script>
+ function showCongratulations() {alert("Thank you for join our membership!");return true;}
+</script>
 </head>
 <body>
 	<div id="__next" data-reactroot>
@@ -39,7 +41,7 @@
 					<li class="menu__item">
 					<a th:href="@{/login}" class="menu_link" th:if="${session.member == null}">&nbspSign In&nbsp</a>
        				<a th:href="@{/logout}" class="menu_link" th:if="${session.member != null}">&nbspSign Out&nbsp</a>
-					</li>&nbsp					
+					</li>&nbsp
 					<li class="menu__item"><a href="onlineshop" class="menu_link">&nbspOnline Shop&nbsp</a></li>
 				</ul>
 			</nav>
@@ -49,29 +51,46 @@
 			<section class="info" id="informations" data-background="f8d9d2">
 				<div class="info__inner">
 					<p class="info__text" style="text-align:center;">
-					<br />&nbsp <br />
-						<span style="color:#0052FF">Access Denied</span>
 						<br />
-						<br />
-						You have no authority.
-						<br />
+					    &nbsp&nbsp&nbsp Add Works <span style="color:#0052FF;">+</span>  <br />
 						<br />
 					</p>
 					
+		<div class="container" align="center"><br>
 		
+			<form th:action="insertMember" method="post" onsubmit="return showCongratulations()">
+			
+ 				<div class="">
+					<input type="text" class="rounded-input" name="id" placeholder="USER ID" value="" /> <br /> <br />
+					<input type="text" class="rounded-input" name="name" placeholder="NAME" value="" /> <br /> <br />
+					<input type="password" class="rounded-input" name="password"  placeholder="PASSWORD" value="" /> <br /> <br />
+					<input type="text" class="rounded-input" name="telephone" placeholder="TELEPHONE" value="" /> <br /> <br />
+					<input type="text" class="rounded-input" name="role" placeholder="USER-FIXED" readonly /> <br /> <br /> <br />
+					<input type="submit" class="btn-submit" value="Submit" style="border: none; background:#fff; font-weight: bold"> &nbsp
+				</div>	
+				
+				
+			</form>
 			</div>
 			
-				
+			</div>
 			
-			<div class="contact__link" style="top:76%; left:44%; transform: rotate( -5deg )">
-				<a href="/" target="" rel="noreferrer" style="color:">
-				<!-- -->Home
+			<div class="contact__link" style="top:38%; left:12%; transform: rotate( -12deg )">
+				<a href="" target="" rel="noreferrer">
+				<!-- -->welcome
 				</a>
 			</div>
 			
-			<div class="admin_page" style="top:96%; left:93%" th:if="${isAdmin}">
+			<div class="contact__link" style="top:57%; left:14%; transform: rotate( -6deg )">
+				<a href="" target="" rel="noreferrer">
+				&nbsp<!-- -->join us !
+				</a>
+			</div>
+			
+			<div class="admin_page" style="top:96%; left:93%">
     			<a href="admin" target="" rel="noreferrer">Admin</a>
 			</div>
+			
 				
 			</section>
 		</main>

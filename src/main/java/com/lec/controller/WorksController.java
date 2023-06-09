@@ -1,5 +1,14 @@
 package com.lec.controller;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.net.URLEncoder;
+
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
@@ -12,6 +21,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
@@ -22,7 +32,7 @@ import com.lec.domain.Works;
 import com.lec.service.WorksService;
 
 @Controller
-@SessionAttributes({"member", "pagingInfo"})
+@SessionAttributes({"pagingInfo"})
 public class WorksController {
 	
 	@Autowired
@@ -45,7 +55,7 @@ public class WorksController {
 	}
 	
 	
-	@GetMapping("/works")
+	@GetMapping("/getWorksList")
 	public String getWorksList(Model model,
 			@RequestParam(defaultValue = "0") int curPage,
 			@RequestParam(defaultValue = "10") int rowSizePerPage,
@@ -82,17 +92,32 @@ public class WorksController {
 		model.addAttribute("st", searchType);
 		model.addAttribute("sw", searchWord);
 		
-		return "works/works";
+		return "works/getWorksList";
 	}
 	
 	
 	@GetMapping("/insertWorks")
-	public String insertWorksView(@ModelAttribute("member") Member member) {
-		if(member.getId() == null) {
-			return "redirect:login";
-		}
-		return "works/insertWorks";
-	}
+    public String getAdminPage(Model model, HttpSession session) {
+        Member member = (Member) session.getAttribute("member");
+        if (member != null && "ADMIN".equals(member.getRole())) {
+            return "works/insertWorks";
+        } else {
+            return "info/accessDenied";
+        }
+    }
+	
+//	@GetMapping("/insertWorks")
+//	public String insertWorksView() {
+//		return "works/insertWorks";
+//	}
+	
+//	@GetMapping("/insertWorks")
+//	public String insertWorksView(@ModelAttribute("member") Member member) {
+//		if(member.getId() == null) {
+//			return "redirect:login";
+//		}
+//		return "works/insertWorks";
+//	}
 	
 	@PostMapping("/insertWorks")
 	public String insertWorks(@ModelAttribute("member") Member member, Works works) throws Exception {
@@ -103,12 +128,83 @@ public class WorksController {
 		MultipartFile uploadFile = works.getUploadFile();
 		if(!uploadFile.isEmpty()) {
 			String fileName = uploadFile.getOriginalFilename();
-			
+			uploadFile.transferTo(new File(uploadFolder + fileName));
+			works.setFileName(fileName);
 		}
-		
+		worksService.insertWorks(works);
+		return "redirect:getWorksList";
 	}
 	
 	
+	@GetMapping("/getWorks")
+	public String getWorks(@ModelAttribute("member") Member member, Works works, Model model) {
+		if(member.getId() == null) {
+			return "redirect:login";
+		}
+		worksService.updateReadCount(works);
+		model.addAttribute("works", worksService.getWorks(works));
+		return "works/getWorks";
+	}
+	
+	
+	@PostMapping("/updateWorks")
+	public String updateWorks(@ModelAttribute("member") Member member, Works works) {
+		if(member.getId() == null) {
+			return "redirect:login";
+		}
+		worksService.updateWorks(works);
+		return "forward:getWorksList";
+	}
+	
+	@GetMapping("/deleteWorks")
+	public String deleteWorks(@ModelAttribute("member") Member member, Works works) {
+		if(member.getId() == null) {
+			return "redirect:login";
+		}
+		worksService.deleteWorks(works);
+		return "forward:getWorksList";
+	}
+	
+	
+	@RequestMapping("/download")
+	public void download(HttpServletRequest req, HttpServletResponse res) throws Exception {
+		
+		req.setCharacterEncoding("utf-8");
+		String fileName = req.getParameter("fn");
+		
+		String fromPath = uploadFolder + fileName;
+		String toPath = uploadFolder + fileName;
+		
+		byte[] b = new byte[4096];
+		File f = new File(toPath);
+		FileInputStream fis = new FileInputStream(fromPath);
+		
+		String sMimeType = req.getSession().getServletContext().getMimeType(fromPath);  // mimetype = file type : pdf, exe, txt ...
+		if(sMimeType == null) sMimeType = "application/octet-stream";
+		
+		String sEncoding = new String(fileName.getBytes("utf-8"), "8859-1");
+		String sEncoding1 = URLEncoder.encode(fileName, "utf-8");
+		
+		res.setContentType(sMimeType);
+		res.setHeader("Content-Transfer-Encoding", "binary");
+		res.setHeader("Content-Disposition", "attachmemnt; filename = " + sEncoding1);
+		
+		int numRead;
+		ServletOutputStream os = res.getOutputStream();
+		
+		while((numRead=fis.read(b, 0, b.length)) != -1) {
+			os.write(b, 0, numRead);
+		}
+		os.flush();
+		os.close();
+		fis.close();
+		
+//		return "redirect:getWorksList";
+	}
+	
+	public int updateView(Works works) {
+		return worksService.updateReadCount(works);
+	}
 	
 	
 

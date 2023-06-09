@@ -13,5 +13,6 @@ public interface WorksService {
 	void insertWorks(Works works);
 	void updateWorks(Works works);
 	void deleteWorks(Works works);
+	int updateReadCount(Works works);
 
 }

@@ -17,13 +17,14 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+@EntityListeners(WorksListeners.class)
 @Getter
 @Setter
 @ToString
 @Entity
 public class Works {
 	
-	@Id @GeneratedValue
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long seq;
 	
 	private String title;
@@ -43,6 +44,10 @@ public class Works {
 	
 	@Transient
 	private MultipartFile uploadFile;	
+	
+	private Long works_ref;
+	private Long works_lev;
+	private Long works_seq;
 }
 
 

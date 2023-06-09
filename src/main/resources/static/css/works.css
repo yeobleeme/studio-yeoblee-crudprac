@@ -1,0 +1,46 @@
+
+#barba-wrapper {
+  visibility: visible;
+  position: relative;
+}
+
+.barba-container {
+  background-color: #fff;
+}
+
+#main-work {
+  background-color:
+  color: #fff;
+  padding: 20px;
+}
+
+.work-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.work-list__item {
+  background-color: #ddd;
+  padding: 10px;
+}
+
+.work-list__item a {
+  text-decoration: none;
+  color: #111;
+}
+
+.work-list__item a:hover {
+  text-decoration: underline;
+}
+
+.work-list__item img {
+  width: 100%;
+  height: auto;
+}
+
+.work-list__item h2 {
+  font-size: 18px;
+  margin: 10px 0;
+}
