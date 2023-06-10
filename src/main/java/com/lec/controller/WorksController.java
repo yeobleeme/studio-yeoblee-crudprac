@@ -126,6 +126,7 @@ public class WorksController {
 		}
 		// File Upload
 		MultipartFile uploadFile = works.getUploadFile();
+		
 		if(!uploadFile.isEmpty()) {
 			String fileName = uploadFile.getOriginalFilename();
 			uploadFile.transferTo(new File(uploadFolder + fileName));
