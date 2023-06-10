@@ -97,7 +97,7 @@ public class WorksController {
 	
 	
 	@GetMapping("/insertWorks")
-    public String getAdminPage(Model model, HttpSession session) {
+    public String insertWorksView(Model model, HttpSession session) {
         Member member = (Member) session.getAttribute("member");
         if (member != null && "ADMIN".equals(member.getRole())) {
             return "works/insertWorks";
