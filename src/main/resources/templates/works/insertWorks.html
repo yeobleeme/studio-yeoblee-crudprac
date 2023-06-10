@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Add Works</title>
+<title>Studio Yeoblee 𖣃 New Works</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -12,9 +12,6 @@
 <style>
 *{font-family: 'Roboto', sans-serif;}
 </style>
-<script>
- function showCongratulations() {alert("Thank you for join our membership!");return true;}
-</script>
 </head>
 <body>
 	<div id="__next" data-reactroot>
@@ -52,40 +49,48 @@
 				<div class="info__inner">
 					<p class="info__text" style="text-align:center;">
 						<br />
-					    &nbsp&nbsp&nbsp Add Works <span style="color:#0052FF;">+</span>  <br />
+					    &nbsp&nbsp New Works <span style="color:#0052FF;">+</span>  <br />
 						<br />
 					</p>
 					
 		<div class="container" align="center"><br>
 		
-			<form th:action="insertMember" method="post" onsubmit="return showCongratulations()">
-			
- 				<div class="">
-					<input type="text" class="rounded-input" name="id" placeholder="USER ID" value="" /> <br /> <br />
-					<input type="text" class="rounded-input" name="name" placeholder="NAME" value="" /> <br /> <br />
-					<input type="password" class="rounded-input" name="password"  placeholder="PASSWORD" value="" /> <br /> <br />
-					<input type="text" class="rounded-input" name="telephone" placeholder="TELEPHONE" value="" /> <br /> <br />
-					<input type="text" class="rounded-input" name="role" placeholder="USER-FIXED" readonly /> <br /> <br /> <br />
-					<input type="submit" class="btn-submit" value="Submit" style="border: none; background:#fff; font-weight: bold"> &nbsp
-				</div>	
-				
-				
+			<form th:action="insertWorks" method="post" enctype="multipart/form=data">
+				<input type="hidden" name="writer" class="" th:value="${session.member.id}"/>
+				<div class="">
+					<div class="">
+					
+						<div class="">
+							<input type="text" name="title" class="" id="title" required placeholder="TITLE" />
+						</div>
+						<div class="">
+							<input type="text" class="" id="writer" th:value="${session.member.id}" disabled placeholder="WRITER" />
+						</div>
+						<div class="">
+							<textarea class="" name="content" id="content" cols="30" rows="10" placeholder="DESCRIPTION" ></textarea>
+						</div>
+						<div class="">
+							<label class="" for="uploadFile" ></label>
+							<input type="file" class="" name="uploadFile" id="uploadFile" aria-describedby="uploadFile" aria-label="Upload" />
+						</div>
+						<div class="">
+							<input type="submit" class="btn-submit" value="Post" style="border: none; background:#fff; font-weight: bold" />
+							&nbsp;&nbsp;&nbsp;
+							<a href="getWorksList" class="btn-submit" style="border: none; font-weight: bold">Back</a>
+						</div>
+						
+					</div>
+				</div>
 			</form>
-			</div>
+		</div>
 			
-			</div>
 			
-			<div class="contact__link" style="top:38%; left:12%; transform: rotate( -12deg )">
-				<a href="" target="" rel="noreferrer">
-				<!-- -->welcome
-				</a>
-			</div>
 			
-			<div class="contact__link" style="top:57%; left:14%; transform: rotate( -6deg )">
-				<a href="" target="" rel="noreferrer">
-				&nbsp<!-- -->join us !
-				</a>
-			</div>
+			
+			
+		</div>
+			
+			
 			
 			<div class="admin_page" style="top:96%; left:93%">
     			<a href="admin" target="" rel="noreferrer">Admin</a>

@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Sign in</title>
+<title>Studio Yeoblee 𖣃 No Authority</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -19,13 +19,13 @@
 		<header class="header">
 			<div class="header__section">
 				<div class="header__title">
-					<a href="/">&nbspStudio Yeoblee&nbsp</a>
+					<a href="/">&nbsp;Studio Yeoblee&nbsp;</a>
 				</div>
 				<div class="header__menu">
 					<ul class="header__menu__list">
 						<li class="header__menu__item active">
-						<span>&nbspHELLO&nbsp&nbsp&nbsp안녕&nbsp&nbsp&nbspBonjour
-						&nbsp&nbspこんにちは&nbsp&nbsp&nbspHola&nbsp&nbsp&nbspGetenTag&nbsp</span>
+						<span>&nbsp;HELLO&nbsp;&nbsp;&nbsp;안녕&nbsp;&nbsp;&nbsp;Bonjour
+						&nbsp;&nbsp;こんにちは&nbsp;&nbsp;&nbsp;Hola&nbsp;&nbsp;&nbsp;GetenTag&nbsp;</span>
 						</li>
 					</ul>
 				</div>
@@ -33,14 +33,14 @@
 			
 			<nav class="menu">
 				<ul class="menu__list">
-					<li class="menu__item"><a href="info" class="menu_link">&nbspInformations&nbsp</a></li>&nbsp
-					<li class="menu__item"><a href="getWorksList" class="menu_link">&nbspWorks&nbsp</a></li>&nbsp
-					<li class="menu__item"><a href="contact" class="menu_link">&nbspContact&nbsp</a></li>&nbsp
+					<li class="menu__item"><a href="info" class="menu_link">&nbsp;Informations&nbsp;</a></li>&nbsp;
+					<li class="menu__item"><a href="getWorksList" class="menu_link">&nbsp;Works&nbsp;</a></li>&nbsp;
+					<li class="menu__item"><a href="contact" class="menu_link">&nbsp;Contact&nbsp;</a></li>&nbsp;
 					<li class="menu__item">
-					<a th:href="@{/login}" class="menu_link" th:if="${session.member == null}">&nbspSign In&nbsp</a>
-       				<a th:href="@{/logout}" class="menu_link" th:if="${session.member != null}">&nbspSign Out&nbsp</a>
-					</li>&nbsp					
-					<li class="menu__item"><a href="onlineshop" class="menu_link">&nbspOnline Shop&nbsp</a></li>
+					<a th:href="@{/login}" class="menu_link" th:if="${session.member == null}">&nbsp;Sign In&nbsp;</a>
+       				<a th:href="@{/logout}" class="menu_link" th:if="${session.member != null}">&nbsp;Sign Out&nbsp;</a>
+					</li>&nbsp;
+					<li class="menu__item"><a href="onlineshop" class="menu_link">&nbsp;Online Shop&nbsp;</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -49,12 +49,14 @@
 			<section class="info" id="informations" data-background="f8d9d2">
 				<div class="info__inner">
 					<p class="info__text" style="text-align:center;">
-					<br />&nbsp <br />
+					<br />&nbsp; <br />
 						<span style="color:#0052FF">Access Denied</span>
 						<br />
 						<br />
 						You have no authority.
 						<br />
+						<br />
+						<a href="/" class="admin_menu">⬅</a>
 						<br />
 					</p>
 					
@@ -63,11 +65,7 @@
 			
 				
 			
-			<div class="contact__link" style="top:76%; left:44%; transform: rotate( -5deg )">
-				<a href="/" target="" rel="noreferrer" style="color:">
-				<!-- -->Home
-				</a>
-			</div>
+			
 			
 			<div class="admin_page" style="top:96%; left:93%" th:if="${isAdmin}">
     			<a href="admin" target="" rel="noreferrer">Admin</a>
@@ -80,7 +78,7 @@
 		<br />
 		<br />
         <p class="copyright">copyright © 2023 Yeoblee Inc. All rights reserved.
-    	<br />&nbsp</p>
+    	<br />&nbsp;</p>
     </footer>
     
 	</div>

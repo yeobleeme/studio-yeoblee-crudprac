@@ -12,7 +12,7 @@ public class ContactController {
 	}
 	
 	@GetMapping("/")
-	public String index() {
+	public String getIndexPage() {
 		return "index";
 	}
 
