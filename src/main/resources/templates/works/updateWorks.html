@@ -61,13 +61,10 @@
 					<div class="">
 						<input type="text" name="title" class="rounded-input" id="title" th:value="${works.title}" style="width:518px"/><br /><br />
 						<input type="text" name="writer" class="rounded-input" th:value="${works.writer}" readonly style="width:518px"/><br /><br />
-						<textarea class="rounded-input" name="content" cols="50" rows="10" th:value="${works.content}" ></textarea><br /><br />
-						<label class="" for="uploadFile" ></label>
-						<input type="file" class="rounded-input" name="uploadFile" id="uploadFile" 
-								th:value="${works.fileName}" aria-describedby="uploadFile" aria-label="Upload" style="width:518px" />
-						<br /><br /><br />
-
+						<textarea class="rounded-input" name="content" cols="50" rows="10" th:text="${works.content}" ></textarea><br /><br />
 						
+						<br />
+
 						<div class="">
 							<input type="submit" class="btn-submit" value="Modify" style="border: none; background:#fff; font-weight: bold" />
 							&nbsp;&nbsp;&nbsp;

@@ -73,7 +73,7 @@
 		       <tr class="member_list_text" th:each="work : ${works}" style="height: 38px">
 		          <td th:text="${work.seq}"></td>
 		          <td th:text="${work.writer}"></td>
-		          <td><a href="@{/updateWorks(seq=${work.seq})}" th:text="${work.title}"></a></td>
+		          <td><a th:href="@{/updateWorks(seq=${work.seq})}" th:text="${work.title}"></a></td>
 		          <td th:text="${work.fileName}"></td>
 		          <td th:text="${#dates.format(work.createDate, 'yyyy.MM.dd')}"></td>
 		          <td style="text-align: center;"> 
