@@ -1,5 +1,6 @@
 package com.lec.impl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,6 +66,11 @@ public class WorksServiceImpl implements WorksService {
 	@Override
 	public int updateReadCount(Works works) {
 		return worksRepository.updateReadCount(works.getSeq());
+	}
+
+	@Override
+	public List<Works> getWorksList() {
+		return (List<Works>) worksRepository.findAll();
 	}
 
 }

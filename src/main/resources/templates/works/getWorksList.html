@@ -37,7 +37,7 @@
 					<li class="menu__item"><a href="getWorksList" class="menu_link">&nbsp;Works&nbsp;</a></li>&nbsp;
 					<li class="menu__item"><a href="contact" class="menu_link">&nbsp;Contact&nbsp;</a></li>&nbsp;
 					<li class="menu__item">
-					<a th:href="@{/login}" class="menu_link" th:if="${session.member == null}">&nbs;pSign In&nbsp;</a>
+					<a th:href="@{/login}" class="menu_link" th:if="${session.member == null}">&nbsp;Sign In&nbsp;</a>
        				<a th:href="@{/logout}" class="menu_link" th:if="${session.member != null}">&nbsp;Sign Out&nbsp;</a>
 					</li>&nbsp;
 					<li class="menu__item"><a href="onlineshop" class="menu_link">&nbsp;Online Shop&nbsp;</a></li>
@@ -58,7 +58,7 @@
 						<br />
 					</p>
 					
-					<div class="admin_page" style="top:27%; left:90%">
+					<div class="admin_page" style="top:20%; left:90%">
     					<a href="insertWorks" target="" rel="noreferrer">Post New +</a>
 					</div>
 					
@@ -72,74 +72,20 @@
 				<main class="main" data-header-color="black">
 					<section class="info__inner" id="main-work">
 						<div class="section-inner is-fluid2">
+						
 							<ul class="work-list is-type2 js-infinite">
-								<li class="work-list__item">
-									<a href="">
-										<figure>
-											<img src="" alt="" />
-											<figcaption>
-											<h2> </h2>
-											</figcaption>
-										</figure>
-									</a>
-								</li>
 								
-								<li class="work-list__item">
-									<a href="">
-										<figure>
-											<img src="" alt="" />
-											<figcaption>
-											<h2> </h2>
-											</figcaption>
-										</figure>
-									</a>
-								</li>
-								
-								<li class="work-list__item">
-									<a href="">
-										<figure>
-											<img src="" alt="" />
-											<figcaption>
-											<h2> </h2>
-											</figcaption>
-										</figure>
-									</a>
-								</li>
-								
-								<li class="work-list__item">
-									<a href="">
-										<figure>
-											<img src="" alt="" />
-											<figcaption>
-											<h2> </h2>
-											</figcaption>
-										</figure>
-									</a>
-								</li>
-								
-								<li class="work-list__item">
-									<a href="">
-										<figure>
-											<img src="" alt="" />
-											<figcaption>
-											<h2> </h2>
-											</figcaption>
-										</figure>
-									</a>
-								</li>
-								
-								<li class="work-list__item">
-									<a href="">
-										<figure>
-											<img src="" alt="" />
-											<figcaption>
-											<h2> </h2>
-											</figcaption>
-										</figure>
+								<li th:each="works, state : ${pagedResult.getContent()}" class="work-list__item">
+								<br /><br />
+									<a th:href="@{/getWorks(seq=${works.seq})}">
+											<img th:src="@{'uploadfile/' + ${works.fileName}}" alt="" />
+											<br /><br />
+											<h2 th:text="${works.title}" > </h2>
 									</a>
 								</li>
 								
 							</ul>
+							
 						</div>
 					</section>
 				</main>
@@ -154,10 +100,9 @@
 			
 	</div>
 			
-			<div class="admin_page" style="top:96%; left:93%">
+			<div class="admin_page" style="top:100%; left:93%">
     			<a href="admin" target="" rel="noreferrer">Admin</a>
 			</div>
-			
 				
 			</section>
 		</main>
@@ -168,11 +113,15 @@
 		
 		
 		<footer id="foot" style="color:grey; text-align:center;">
+			<br /><br /><br /><br /><br /><br /><br />
             <p class="copyright">copyright © 2023 Yeoblee Inc. All rights reserved.
             <br />&nbsp;</p>
+            
         </footer>
 		
 		</div>
+		
+		
 
 </body>
 </html>

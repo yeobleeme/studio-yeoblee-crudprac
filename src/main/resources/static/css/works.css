@@ -22,17 +22,30 @@
 }
 
 .work-list__item {
-  background-color: #ddd;
+  background-color: #fff;
   padding: 10px;
+  /* border: 0.1px solid grey; */
+}
+
+/* .work-list__item:hover {
+  border: 0.5px solid #ECECEC;
+  border-radius: 20px;
+} */
+
+.work-list__item:hover img {
+  transform: scale(1.2);
 }
 
 .work-list__item a {
   text-decoration: none;
-  color: #111;
+  color: #black;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .work-list__item a:hover {
-  text-decoration: underline;
+  /* text-decoration: underline; */
+  color:#0052FF;
 }
 
 .work-list__item img {

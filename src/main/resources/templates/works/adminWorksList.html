@@ -2,7 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Studio Yeoblee 𖣃 New Works</title>
+<title>Studio Yeoblee 𖣃 Works List</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -12,6 +13,9 @@
 <style>
 *{font-family: 'Roboto', sans-serif;}
 </style>
+<script th:inline="javascript">
+ function showConfirm(message) {return confirm(message);}
+</script>
 </head>
 <body>
 	<div id="__next" data-reactroot>
@@ -48,43 +52,44 @@
 			<section class="info" id="informations" data-background="f8d9d2">
 				<div class="info__inner">
 					<p class="info__text" style="text-align:center;">
-					<br />
-					&nbsp;&nbsp; New Works <span style="color:#0052FF;">+</span>  <br />
+						<br />
+					    Works List <span style="color:#0052FF;">±</span>&nbsp; <br />
+						<br />
 					</p>
-					<br /><br /><br />
 					
-		<div class="container" align="center"><br>
 		
-			<form th:action="insertWorks" method="post" enctype="multipart/form-data">
-				<input type="hidden" name="writer" class="" th:value="${session.member.id}"/>
-				<div class="">
-					<div class="">
-								
-						<input type="text" name="title" class="rounded-input" id="title" required placeholder="TITLE" style="width:518px" /><br /><br />
-						<input type="text" class="rounded-input" id="writer" th:value="${session.member.id}" disabled placeholder="WRITER" style="width:518px" /><br /><br />
-						<textarea class="rounded-input" name="content" id="content" cols="50" rows="10" placeholder="DESCRIPTION" ></textarea><br /><br />
-
-							
-							<label class="" for="uploadFile" ></label>
-							<input type="file" class="rounded-input" name="uploadFile" id="uploadFile" aria-describedby="uploadFile" aria-label="Upload" style="width:518px" />
-							<br /><br /><br />
-						<div class="">
-							<input type="submit" class="btn-submit" value="Post" style="border: none; background:#fff; font-weight: bold" />
-							&nbsp;&nbsp;&nbsp;
-							<a href="getWorksList" class="btn-submit" style="border: none; font-weight: bold">Back</a>
-						</div>
-						
-					</div>
-				</div>
-			</form>
-		</div><br /><br /><br /><br /><br />
-			
-			
-			
-			
-			
+		<div class="" align="center">		
+		  <div class="">
+		    <table class="" style="text-align:left; width:70%;">
+		      <thead class="" style="height: 50px">
+		        <th style="width: 5%;">NO</th>
+		        <th style="width: 10%;">WRITER</th>
+		        <th style="width: 10%;">TITLE</th>
+		        <th style="width: 13%;">FILE</th>
+		        <th style="width: 8%;">DATE</th>
+		        <th style="width: 7%; text-align: center;">DELETE</th>
+		      </thead>
+		      <tbody>
+		       <tr class="member_list_text" th:each="work : ${works}" style="height: 38px">
+		          <td th:text="${work.seq}"></td>
+		          <td th:text="${work.writer}"></td>
+		          <td><a href="@{/updateWorks(seq=${work.seq})}" th:text="${work.title}"></a></td>
+		          <td th:text="${work.fileName}"></td>
+		          <td th:text="${#dates.format(work.createDate, 'yyyy.MM.dd')}"></td>
+		          <td style="text-align: center;"> 
+  				  <a th:href="@{/deleteWorks(id=${work.seq})}" 
+  				  	 th:onclick="return showConfirm('Are you sure to delete this post?')">
+  				  	 <span class="material-symbols-outlined">delete</span>
+  				  </a>
+				  </td>
+		        </tr>
+		      </tbody>
+		    </table>
+		  </div>	
 		</div>
-			
+		
+	
+	</div>		
 			
 			
 			<div class="admin_page" style="top:96%; left:93%">
@@ -93,16 +98,21 @@
 			
 				
 			</section>
-		</main>
+		</main>			
+				
+				
+		<footer id="foot" style="color:grey; text-align:center;">
+		<br /><br /><br /><br /><br /><br /><br />
+            <p class="copyright">copyright © 2023 Yeoblee Inc. All rights reserved.
+            <br />&nbsp;</p>
+        </footer>
 		
-	<footer id="foot" style="color:grey; text-align:center;">
-		<br />
-		<br />
-        <p class="copyright">copyright © 2023 Yeoblee Inc. All rights reserved.
-    	<br />&nbsp;</p>
-    </footer>
-    
 	</div>
 
 </body>
 </html>
+
+
+
+
+

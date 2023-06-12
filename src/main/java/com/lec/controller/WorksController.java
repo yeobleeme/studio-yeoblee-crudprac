@@ -2,6 +2,7 @@ package com.lec.controller;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.net.URLEncoder;
 
 import javax.servlet.ServletOutputStream;
@@ -29,10 +30,11 @@ import org.springframework.web.multipart.MultipartFile;
 import com.lec.domain.Member;
 import com.lec.domain.PagingInfo;
 import com.lec.domain.Works;
+import com.lec.persistence.WorksRepository;
 import com.lec.service.WorksService;
 
 @Controller
-@SessionAttributes({"pagingInfo"})
+@SessionAttributes({"member", "pagingInfo"})
 public class WorksController {
 	
 	@Autowired
@@ -62,7 +64,7 @@ public class WorksController {
 			@RequestParam(defaultValue = "title") String searchType,
 			@RequestParam(defaultValue = "") String searchWord) {
 		
-		Pageable pageable = PageRequest.of(curPage, rowSizePerPage, Sort.by(searchType).ascending());
+		Pageable pageable = PageRequest.of(curPage, rowSizePerPage, Sort.by(searchType).descending());
 		Page<Works> pagedResult = worksService.getWorksList(pageable, searchType, searchWord);
 		
 		int totalRowCount = pagedResult.getNumberOfElements();
@@ -96,31 +98,31 @@ public class WorksController {
 	}
 	
 	
-	@GetMapping("/insertWorks")
-    public String insertWorksView(Model model, HttpSession session) {
-        Member member = (Member) session.getAttribute("member");
-        if (member != null && "ADMIN".equals(member.getRole())) {
-            return "works/insertWorks";
-        } else {
-            return "info/accessDenied";
-        }
-    }
+//	@GetMapping("/insertWorks")
+//    public String insertWorksView(Model model, HttpSession session) {
+//        Member member = (Member) session.getAttribute("member");
+//        if (member != null && "ADMIN".equals(member.getRole())) {
+//            return "works/insertWorks";
+//        } else {
+//            return "info/accessDenied";
+//        }
+//    }
 	
 //	@GetMapping("/insertWorks")
 //	public String insertWorksView() {
 //		return "works/insertWorks";
 //	}
 	
-//	@GetMapping("/insertWorks")
-//	public String insertWorksView(@ModelAttribute("member") Member member) {
-//		if(member.getId() == null) {
-//			return "redirect:login";
-//		}
-//		return "works/insertWorks";
-//	}
+	@GetMapping("/insertWorks")
+	public String insertWorksView(@ModelAttribute("member") Member member) {
+		if(member.getId() == null) {
+			return "redirect:login";
+		}
+		return "works/insertWorks";
+	}
 	
 	@PostMapping("/insertWorks")
-	public String insertWorks(@ModelAttribute("member") Member member, Works works) throws Exception {
+	public String insertWorks(@ModelAttribute("member") Member member, Works works) throws IOException {
 		if(member.getId() == null) {
 			return "redirect:login";
 		}
@@ -148,6 +150,21 @@ public class WorksController {
 	}
 	
 	
+	
+	@GetMapping("/adminWorksList")
+	public String updateWorksView(Model model, Works works) {
+		
+		model.addAttribute("works", worksService.getWorksList());
+		return "works/adminWorksList";
+	}
+	
+	@GetMapping("/updateWorks")
+	public String updateWorks(Model model, Works works) {
+		
+		model.addAttribute("works", worksService.getWorks(works));
+		return "works/updateWorks";
+	}
+	
 	@PostMapping("/updateWorks")
 	public String updateWorks(@ModelAttribute("member") Member member, Works works) {
 		if(member.getId() == null) {
@@ -158,10 +175,12 @@ public class WorksController {
 	}
 	
 	@GetMapping("/deleteWorks")
-	public String deleteWorks(@ModelAttribute("member") Member member, Works works) {
+	public String deleteWorks(@RequestParam("id") Long id, Member member) {
 		if(member.getId() == null) {
 			return "redirect:login";
 		}
+		Works works = new Works();
+		works.setSeq(id);
 		worksService.deleteWorks(works);
 		return "forward:getWorksList";
 	}

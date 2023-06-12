@@ -1,10 +1,120 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Studio Yeoblee 𖣃 Works</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<link href="/css/common.css" rel="stylesheet" />
+<link href="/css/works.css" rel="stylesheet" />
+<script src="/js/index.js" defer></script>
+<script src="/js/app.js" defer></script>
+<style>
+*{font-family: 'Roboto', sans-serif;}
+</style>
 </head>
 <body>
+	<div id="__next" data-reactroot>
+		<header class="header">
+			<div class="header__section">
+				<div class="header__title">
+					<a href="/">&nbsp;Studio Yeoblee&nbsp;</a>
+				</div>
+				<div class="header__menu">
+					<ul class="header__menu__list">
+						<li class="header__menu__item active">
+						<span>&nbsp;HELLO&nbsp;&nbsp;&nbsp;안녕&nbsp;&nbsp;&nbsp;Bonjour
+						&nbsp;&nbsp;こんにちは&nbsp;&nbsp;&nbsp;Hola&nbsp;&nbsp;&nbsp;GetenTag&nbsp;</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+			<nav class="menu">
+				<ul class="menu__list">
+					<li class="menu__item"><a href="info" class="menu_link">&nbsp;Informations&nbsp;</a></li>&nbsp;
+					<li class="menu__item"><a href="getWorksList" class="menu_link">&nbsp;Works&nbsp;</a></li>&nbsp;
+					<li class="menu__item"><a href="contact" class="menu_link">&nbsp;Contact&nbsp;</a></li>&nbsp;
+					<li class="menu__item">
+					<a th:href="@{/login}" class="menu_link" th:if="${session.member == null}">&nbsp;Sign In&nbsp;</a>
+       				<a th:href="@{/logout}" class="menu_link" th:if="${session.member != null}">&nbsp;Sign Out&nbsp;</a>
+					</li>&nbsp;
+					<li class="menu__item"><a href="onlineshop" class="menu_link">&nbsp;Online Shop&nbsp;</a></li>
+				</ul>
+			</nav>
+		</header>
+		
+		
+		<main class="main" style="--background: rgb (255,255,255);">
+			<section class="info" id="informations" data-background="f8d9d2">
+				<div class="info__inner" align="center">
+					<p class="info__text" style="text-align:center;">
+						<br />
+					    &nbsp; Works <span style="color:#0052FF;">ⓦ</span>  <br />
+						<br />
+					</p>
+					
+					<div class="admin_page" style="top:27%; left:92%">
+    					<a href="getWorksList" target="" rel="noreferrer">Go Back</a>
+					</div>
+					
+					
+					
+					
+					<div class="" >
+					
+						<div class="" style="width:75%; text-align:center; justify-contents: center">
+							<br /><br />
+							<img th:src="@{'uploadfile/' + ${works.fileName}}" alt="" />
+							<br /><br /><br /><br /><br />
+							<h2 align="left" style="font-size:24px">
+								<span style="font-size:18px; color:grey">Project</span><br /><br />
+								<span th:text="${works.title}"></span><br /><br /><br />
+								<span style="font-size:18px; color:grey">Manager</span><br /><br />
+								<span th:text="${works.writer}"></span><br /><br /><br />
+								<span style="font-size:18px; color:grey">Description</span><br /><br />
+								<span th:text="${works.content}"></span><br /><br /><br />
+								<span style="font-size:18px; color:grey">Date</span><br /><br />
+								<span th:text="${#dates.format(works.createDate, 'yyyy.MM.dd')}"></span><br /><br /><br />
+						   <!-- <span style="font-size:18px; color:grey">No</span><br /><br />
+								<span th:text="${works.cnt}"></span><br /><br /><br /> -->
+								
+								
+							</h2>
+						</div>
+						
+						
+						
+						
+						
+					</div>
+		
+
+					
+		
+			
+	</div>
+			
+			<div class="admin_page" style="top:99%; left:93%">
+    			<a href="admin" target="" rel="noreferrer">Admin</a>
+			</div>
+			
+				
+			</section>
+		</main>
+		
+		
+		
+		
+		
+		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+		<footer id="foot" style="color:grey; text-align:center;">
+            <p class="copyright">copyright © 2023 Yeoblee Inc. All rights reserved.
+            <br />&nbsp;</p>
+        </footer>
+		
+		</div>
 
 </body>
 </html>
