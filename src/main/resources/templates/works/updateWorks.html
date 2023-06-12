@@ -55,12 +55,12 @@
 					
 		<div class="container" align="center"><br>
 		
-			<form th:action="updateWorks" method="post" enctype="multipart/form-data">
+			<form th:action="@{/updateWorks}" method="post" enctype="multipart/form-data">
 				<input type="hidden" name="seq" class="" th:value="${works.seq}"/>
 				<div class="">
 					<div class="">
-						<input type="text" name="title" class="rounded-input" id="title" th:value="${works.title}" style="width:518px" /><br /><br />
-						<input type="text" name="writer" class="rounded-input" th:value="${works.writer}" readonly style="width:518px" /><br /><br />
+						<input type="text" name="title" class="rounded-input" id="title" th:value="${works.title}" style="width:518px"/><br /><br />
+						<input type="text" name="writer" class="rounded-input" th:value="${works.writer}" readonly style="width:518px"/><br /><br />
 						<textarea class="rounded-input" name="content" cols="50" rows="10" th:value="${works.content}" ></textarea><br /><br />
 						<label class="" for="uploadFile" ></label>
 						<input type="file" class="rounded-input" name="uploadFile" id="uploadFile" 
@@ -71,7 +71,7 @@
 						<div class="">
 							<input type="submit" class="btn-submit" value="Modify" style="border: none; background:#fff; font-weight: bold" />
 							&nbsp;&nbsp;&nbsp;
-							<a href="adminWorksList" class="btn-submit" style="border: none; font-weight: bold">Back</a>
+							<a href="/adminWorksList" class="btn-submit" style="border: none; font-weight: bold">Back</a>
 						</div>
 						
 					</div>

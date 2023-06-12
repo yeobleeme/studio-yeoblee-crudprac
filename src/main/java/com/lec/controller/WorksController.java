@@ -141,9 +141,7 @@ public class WorksController {
 	
 	@GetMapping("/getWorks")
 	public String getWorks(@ModelAttribute("member") Member member, Works works, Model model) {
-		if(member.getId() == null) {
-			return "redirect:login";
-		}
+		
 		worksService.updateReadCount(works);
 		model.addAttribute("works", worksService.getWorks(works));
 		return "works/getWorks";
