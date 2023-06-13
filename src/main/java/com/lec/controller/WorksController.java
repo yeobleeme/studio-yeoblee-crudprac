@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -34,7 +35,7 @@ import com.lec.persistence.WorksRepository;
 import com.lec.service.WorksService;
 
 @Controller
-@SessionAttributes({"member", "pagingInfo"})
+//@SessionAttributes({"member", "pagingInfo"})
 public class WorksController {
 	
 	@Autowired
@@ -98,31 +99,31 @@ public class WorksController {
 	}
 	
 	
-//	@GetMapping("/insertWorks")
-//    public String insertWorksView(Model model, HttpSession session) {
-//        Member member = (Member) session.getAttribute("member");
-//        if (member != null && "ADMIN".equals(member.getRole())) {
-//            return "works/insertWorks";
-//        } else {
-//            return "info/accessDenied";
-//        }
-//    }
+	@GetMapping("/insertWorks")
+    public String insertWorksView(Model model, HttpSession session) {
+        Member member = (Member) session.getAttribute("member");
+        if (member != null && "ADMIN".equals(member.getRole())) {
+            return "works/insertWorks";
+        } else {
+            return "info/accessDenied";
+        }
+    }
 	
 //	@GetMapping("/insertWorks")
 //	public String insertWorksView() {
 //		return "works/insertWorks";
 //	}
 	
-	@GetMapping("/insertWorks")
-	public String insertWorksView(@ModelAttribute("member") Member member) {
-		if(member.getId() == null) {
-			return "redirect:login";
-		}
-		return "works/insertWorks";
-	}
+//	@GetMapping("/insertWorks")
+//	public String insertWorksView(@ModelAttribute("member") Member member) {
+//		if(member.getId() == null) {
+//			return "redirect:login";
+//		}
+//		return "works/insertWorks";
+//	}
 	
 	@PostMapping("/insertWorks")
-	public String insertWorks(@ModelAttribute("member") Member member, Works works) throws IOException {
+	public String insertWorks(@SessionAttribute("member") Member member, Works works) throws IOException {
 		if(member.getId() == null) {
 			return "redirect:login";
 		}
