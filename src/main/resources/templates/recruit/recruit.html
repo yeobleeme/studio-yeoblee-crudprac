@@ -2,20 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Studio Yeoblee 𖣃 Works List</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<title>Studio Yeoblee 𖣃 Recruitment</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 <link href="/css/common.css" rel="stylesheet" />
+<link href="/css/works.css" rel="stylesheet" />
 <script src="/js/index.js" defer></script>
 <script src="/js/app.js" defer></script>
 <style>
 *{font-family: 'Roboto', sans-serif;}
 </style>
-<script th:inline="javascript">
- function showConfirm(message) {return confirm(message);}
-</script>
 </head>
 <body>
 	<div id="__next" data-reactroot>
@@ -48,71 +45,83 @@
 			</nav>
 		</header>
 		
+		
+		
+		
+		
 		<main class="main" style="--background: rgb (255,255,255);">
 			<section class="info" id="informations" data-background="f8d9d2">
 				<div class="info__inner">
 					<p class="info__text" style="text-align:center;">
 						<br />
-					    Works List <span style="color:#0052FF;">±</span>&nbsp; <br />
+					    &nbsp; Recruitment <span style="color:#0052FF;">ⓡ</span>  <br />
 						<br />
 					</p>
 					
-		
-		<div class="" align="center">		
-		  <div class="">
-		    <table class="" style="text-align:left; width:70%;">
-		      <thead class="" style="height: 52px">
-		        <th style="width: 5%;">NO</th>
-		        <th style="width: 10%;">WRITER</th>
-		        <th style="width: 10%;">TITLE</th>
-		        <th style="width: 17%;">FILE</th>
-		        <th style="width: 8%;">DATE</th>
-		        <th style="width: 7%; text-align: center;">DELETE</th>
-		      </thead>
-		      <tbody>
-		       <tr class="member_list_text" th:each="work : ${works}" style="height: 42px">
-		          <td th:text="${work.seq}"></td>
-		          <td><a th:href="@{/updateWorks(seq=${work.seq})}" th:text="${work.writer}"></a></td>
-		          <td><a th:href="@{/updateWorks(seq=${work.seq})}" th:text="${work.title}"></a></td>
-		          <td><a th:href="@{/updateWorks(seq=${work.seq})}" th:text="${work.fileName}"></a></td>
-		          <td><a th:href="@{/updateWorks(seq=${work.seq})}" th:text="${#dates.format(work.createDate, 'yyyy.MM.dd')}"></a></td>
-		          <td style="text-align: center;"> 
-  				  <a th:href="@{/deleteWorks(id=${work.seq})}" 
-  				  	 th:onclick="return showConfirm('Are you sure to delete this post?')">
-  				  	 <span class="material-symbols-outlined">delete</span>
-  				  </a>
-				  </td>
-		        </tr>
-		      </tbody>
-		    </table>
-		  </div>	
+					<div class="admin_page" style="top:20%; left:90%">
+    					<a href="insertWorks" target="" rel="noreferrer">Post New +</a>
+					</div>
+					
+
+					
+		<div class="container" align="center"><br>
+			<img src="uploadfile/1920_S19-31 2.jpg" alt="" />
+			
+		<!-- <div id="barba-wrapper" aria-live="polite">
+			<div class="barba-container" data-namespace="work" style="visibility:visible;">
+				<main class="main" data-header-color="black">
+					<section class="info__inner" id="main-work">
+						<div class="section-inner is-fluid2">
+						
+							<ul class="work-list is-type2 js-infinite">
+								
+								<li th:each="works, state : ${pagedResult.getContent()}" class="work-list__item">
+								<br /><br />
+									<a th:href="@{/getWorks(seq=${works.seq})}">
+											<img th:src="@{'uploadfile/1920_S19-31 2.jpg" alt="" />
+											<br /><br />
+											<h2 th:text="${works.title}" > </h2>
+									</a>
+								</li>
+								
+							</ul>
+							
+						</div>
+					</section>
+				</main>
+			</div>
+		</div> -->
+			
+			<br /><br /><br />
+			
+			
+			
 		</div>
-		
-	
-	</div>		
 			
+	</div>
 			
-			<div class="admin_page" style="top:96%; left:93%">
+			<div class="admin_page" style="top:100%; left:93%">
     			<a href="admin" target="" rel="noreferrer">Admin</a>
 			</div>
-			
 				
 			</section>
-		</main>			
-				
-				
+		</main>
+		
+		
+		
+		
+		
+		
 		<footer id="foot" style="color:grey; text-align:center;">
-		<br /><br /><br /><br /><br /><br /><br />
+			<br /><br /><br />
             <p class="copyright">copyright © 2023 Yeoblee Inc. All rights reserved.
             <br />&nbsp;</p>
+            
         </footer>
 		
-	</div>
+		</div>
+		
+		
 
 </body>
 </html>
-
-
-
-
-

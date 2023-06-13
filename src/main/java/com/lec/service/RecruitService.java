@@ -2,6 +2,8 @@ package com.lec.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.lec.domain.Recruit;
 
 public interface RecruitService {
