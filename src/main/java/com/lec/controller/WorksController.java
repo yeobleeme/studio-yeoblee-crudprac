@@ -25,13 +25,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
-import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.lec.domain.Member;
 import com.lec.domain.PagingInfo;
 import com.lec.domain.Works;
-import com.lec.persistence.WorksRepository;
 import com.lec.service.WorksService;
 
 @Controller
@@ -164,14 +162,22 @@ public class WorksController {
 		return "works/updateWorks";
 	}
 	
+	
 	@PostMapping("/updateWorks")
-	public String updateWorks(@ModelAttribute("member") Member member, Works works) {
+	public String updateWorks(@SessionAttribute("member") Member member, Works works, MultipartFile uploadFile) throws IOException {
 		if(member.getId() == null) {
 			return "redirect:login";
 		}
+		if (!uploadFile.isEmpty()) {
+	        String fileName = uploadFile.getOriginalFilename();
+	        uploadFile.transferTo(new File(uploadFolder + fileName));
+	        works.setFileName(fileName);
+	    }
 		worksService.updateWorks(works);
-		return "forward:getWorksList";
+		return "redirect:getWorksList";
 	}
+	
+	
 	
 	@GetMapping("/deleteWorks")
 	public String deleteWorks(@RequestParam("id") Long id, Member member) {

@@ -2,10 +2,15 @@ package com.lec.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.lec.domain.Recruit;
 import com.lec.service.RecruitService;
 
 public class RecruitServiceImpl implements RecruitService {
+	
+//	@Autowired
+//	private RecruitRepository r
 
 	@Override
 	public long getTotalRowCount(Recruit recruit) {
@@ -44,3 +49,11 @@ public class RecruitServiceImpl implements RecruitService {
 	}
 
 }
+
+
+
+
+
+
+
+

@@ -55,7 +55,7 @@
 					
 		<div class="container" align="center"><br>
 		
-			<form th:action="insertWorks" method="post" enctype="multipart/form-data">
+			<form th:action="@{/insertWorks}" method="post" enctype="multipart/form-data">
 				<input type="hidden" name="writer" class="" th:value="${session.member.id}"/>
 				<div class="">
 					<div class="">
@@ -63,15 +63,13 @@
 						<input type="text" name="title" class="rounded-input" id="title" required placeholder="TITLE" style="width:518px" /><br /><br />
 						<input type="text" class="rounded-input" id="writer" th:value="${session.member.id}" disabled placeholder="WRITER" style="width:518px" /><br /><br />
 						<textarea class="rounded-input" name="content" id="content" cols="50" rows="10" placeholder="DESCRIPTION" ></textarea><br /><br />
-
-							
-							<label class="" for="uploadFile" ></label>
-							<input type="file" class="rounded-input" name="uploadFile" id="uploadFile" aria-describedby="uploadFile" aria-label="Upload" style="width:518px" />
-							<br /><br /><br />
+						<label class="" for="uploadFile" ></label>
+						<input type="file" class="rounded-input" name="uploadFile" id="uploadFile" aria-describedby="uploadFile" aria-label="Upload" style="width:518px" />
+						<br /><br /><br />
 						<div class="">
-							<input type="submit" class="btn-submit" value="Post" style="border: none; background:#fff; font-weight: bold" />
-							&nbsp;&nbsp;&nbsp;
-							<a href="getWorksList" class="btn-submit" style="border: none; font-weight: bold">Back</a>
+						<input type="submit" class="btn-submit" value="Post" style="border: none; background:#fff; font-weight: bold" />
+						&nbsp;&nbsp;&nbsp;
+						<a href="getWorksList" class="btn-submit" style="border: none; font-weight: bold">Back</a>
 						</div>
 						
 					</div>
