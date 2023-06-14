@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Studio Yeoblee 𖣃 Works</title>
+<title>Studio Yeoblee 𖣃 Recruit</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -46,63 +46,71 @@
 		</header>
 		
 		
-		
-		
-		
 		<main class="main" style="--background: rgb (255,255,255);">
 			<section class="info" id="informations" data-background="f8d9d2">
-				<div class="info__inner">
+				<div class="info__inner" align="center">
 					<p class="info__text" style="text-align:center;">
 						<br />
-					    &nbsp; Works <span style="color:#0052FF;">ⓦ</span>  <br />
+					     Recruit <span style="color:#0052FF;">ⓡ</span>  <br />
 						<br />
 					</p>
 					
-					<div class="admin_page" style="top:20%; left:90%">
-    					<a href="insertWorks" target="" rel="noreferrer">Post New +</a>
+					<div class="admin_page" style="top:18%; left:92%">
+    					<a href="recruit" target="" rel="noreferrer">Go Back</a>
 					</div>
 					
+					
+					
+					
+					<div class="" >
+					
+						 	<div class="" style="width:50%; text-align:center; justify-contents: center">
+							<br /><br />
+							<h2 align="left" style="font-size:18px">
+							
+								<span style="font-size:16px; color:#6699cc">job and position</span><br /><hr /><br />
+								<span th:text="${recruit.job}"></span><br /><br /><br />
+								
+								<span style="font-size:16px; color:#6699cc">job description and requirements</span><br /><hr /><br />
+								<span th:text="${recruit.dsc}"></span><br /><br /><br />
+								
+								<span style="font-size:16px; color:#6699cc">qualifications and treatments</span><br /><hr /><br />
+								<span th:text="${recruit.qlf}"></span><br /><br /><br />
+								
+						   		<span style="font-size:16px; color:#6699cc">place of work</span><br /><hr /><br />
+								<span th:text="${recruit.loc}"></span><br /><br /><br />
+								
+								<span style="font-size:16px; color:#6699cc">number of recruits</span><br /><hr /><br />
+								<span th:text="${recruit.nor}"></span><br /><br /><br />
+								
+								<span style="font-size:16px; color:#6699cc">recruitment process</span><br /><hr /><br />
+								<span th:text="${recruit.prc}"></span><br /><br /><br />
+								
+								<span style="font-size:16px; color:#6699cc">how to apply</span><br /><hr /><br />
+								<span th:text="${recruit.hta}"></span><br /><br /><br />
+								
+								<span style="font-size:16px; color:#6699cc">recruitment deadline</span><br /><hr /><br />
+								<span th:text="${recruit.ddl}"></span><br /><br />
+								
+							</h2>
+						</div>
+						
+						
+						
+						
+						
+					</div>
+		
 
 					
-		<div class="container" align="center"><br>
-
-			
-		<div id="barba-wrapper" aria-live="polite">
-			<div class="barba-container" data-namespace="work" style="visibility:visible;">
-				<main class="main" data-header-color="black">
-					<section class="info__inner" id="main-work">
-						<div class="section-inner is-fluid2">
-						
-							<ul class="work-list is-type2 js-infinite">
-								
-								<li th:each="works, state : ${pagedResult.getContent()}" class="work-list__item">
-								<br />
-									<a th:href="@{/getWorks(seq=${works.seq})}">
-											<img th:src="@{'uploadfile/' + ${works.fileName}}" alt="" />
-											<br /><br />
-											<h2 th:text="${works.title}" > </h2>
-									</a>
-								</li>
-								
-							</ul>
-							
-						</div>
-					</section>
-				</main>
-			</div>
-		</div>
-			
-			<br /><br /><br />
-			
-			
-			
-		</div>
+		
 			
 	</div>
 			
-			<div class="admin_page" style="top:100%; left:93%">
+			<div class="admin_page" style="top:99%; left:93%">
     			<a href="admin" target="" rel="noreferrer">Admin</a>
 			</div>
+			
 				
 			</section>
 		</main>
@@ -111,17 +119,13 @@
 		
 		
 		
-		
+		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 		<footer id="foot" style="color:grey; text-align:center;">
-			<br /><br /><br />
             <p class="copyright">copyright © 2023 Yeoblee Inc. All rights reserved.
             <br />&nbsp;</p>
-            
         </footer>
 		
 		</div>
-		
-		
 
 </body>
 </html>

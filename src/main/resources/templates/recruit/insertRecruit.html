@@ -2,17 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Studio Yeoblee 𖣃 Works</title>
+<title>Studio Yeoblee 𖣃 New Recruit</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 <link href="/css/common.css" rel="stylesheet" />
-<link href="/css/works.css" rel="stylesheet" />
 <script src="/js/index.js" defer></script>
 <script src="/js/app.js" defer></script>
 <style>
 *{font-family: 'Roboto', sans-serif;}
 </style>
+<script>
+  function showCongrats() {alert("Recruitment posted successfully!");return true;}
+</script>
 </head>
 <body>
 	<div id="__next" data-reactroot>
@@ -45,83 +47,69 @@
 			</nav>
 		</header>
 		
-		
-		
-		
-		
 		<main class="main" style="--background: rgb (255,255,255);">
 			<section class="info" id="informations" data-background="f8d9d2">
 				<div class="info__inner">
 					<p class="info__text" style="text-align:center;">
-						<br />
-					    &nbsp; Works <span style="color:#0052FF;">ⓦ</span>  <br />
-						<br />
+					<br />
+					&nbsp;&nbsp; New Recruit <span style="color:#0052FF;">+</span>  <br />
 					</p>
-					
-					<div class="admin_page" style="top:20%; left:90%">
-    					<a href="insertWorks" target="" rel="noreferrer">Post New +</a>
+					<br /><br /><br />
+					<div class="admin_page" style="top:23%; left:92%">
+    					<a href="recruit" target="" rel="noreferrer">Go Back</a>
 					</div>
 					
-
-					
 		<div class="container" align="center"><br>
-
-			
-		<div id="barba-wrapper" aria-live="polite">
-			<div class="barba-container" data-namespace="work" style="visibility:visible;">
-				<main class="main" data-header-color="black">
-					<section class="info__inner" id="main-work">
-						<div class="section-inner is-fluid2">
-						
-							<ul class="work-list is-type2 js-infinite">
+		
+			<form th:action="@{/insertRecruit}" method="post" onsubmit="return showCongrats()">
+				<input type="hidden" name="writer" class="" th:value="${session.member.id}"/>
+				<div class="">
+					<div class="">
 								
-								<li th:each="works, state : ${pagedResult.getContent()}" class="work-list__item">
-								<br />
-									<a th:href="@{/getWorks(seq=${works.seq})}">
-											<img th:src="@{'uploadfile/' + ${works.fileName}}" alt="" />
-											<br /><br />
-											<h2 th:text="${works.title}" > </h2>
-									</a>
-								</li>
-								
-							</ul>
-							
+						<input type="text" class="rounded-input" name="job" id="title" placeholder="JOB AND POSITION" style="width:518px" /><br /><br />
+						<textarea class="rounded-input" name="dsc" id="dsc" cols="50" rows="5" placeholder="JOB DESCRIPTION" ></textarea><br /><br />
+						<input type="text" class="rounded-input" name="qlf" id="qlf" placeholder="QUALIFICATION" style="width:518px" /><br /><br />
+						<input type="text" class="rounded-input" name="loc" id="loc" placeholder="LOCATION" style="width:518px" /><br /><br />
+						<input type="text" class="rounded-input" name="nor" id="nor" placeholder="NUMBER" style="width:518px" /><br /><br />
+						<input type="text" class="rounded-input" name="prc" id="prc" placeholder="PROCESS" style="width:518px" /><br /><br />
+						<input type="text" class="rounded-input" name="hta" id="hta" placeholder="HOW TO APPLY" style="width:518px" /><br /><br />
+						<input type="text" class="rounded-input" name="ddl" id="ddl" placeholder="DEADLINE" style="width:518px" /><br /><br />
+						<br />
+						<div class="">
+						<input type="submit" class="btn-submit" value="Post" style="border: none; background:#fff; font-weight: bold" />
+						&nbsp;&nbsp;&nbsp;
+						<a href="recruit" class="btn-submit" style="border: none; font-weight: bold">Back</a>
 						</div>
-					</section>
-				</main>
-			</div>
+						
+					</div>
+				</div>
+			</form>
+		</div><br /><br /><br /><br /><br />
+			
+			
+			
+			
+			
 		</div>
 			
-			<br /><br /><br />
 			
 			
-			
-		</div>
-			
-	</div>
-			
-			<div class="admin_page" style="top:100%; left:93%">
+			<div class="admin_page" style="top:96%; left:93%">
     			<a href="admin" target="" rel="noreferrer">Admin</a>
 			</div>
+			
 				
 			</section>
 		</main>
 		
-		
-		
-		
-		
-		
-		<footer id="foot" style="color:grey; text-align:center;">
-			<br /><br /><br />
-            <p class="copyright">copyright © 2023 Yeoblee Inc. All rights reserved.
-            <br />&nbsp;</p>
-            
-        </footer>
-		
-		</div>
-		
-		
+	<footer id="foot" style="color:grey; text-align:center;">
+		<br />
+		<br />
+        <p class="copyright">copyright © 2023 Yeoblee Inc. All rights reserved.
+    	<br />&nbsp;</p>
+    </footer>
+    
+	</div>
 
 </body>
 </html>

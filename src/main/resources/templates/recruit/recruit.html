@@ -54,20 +54,19 @@
 				<div class="info__inner">
 					<p class="info__text" style="text-align:center;">
 						<br />
-					    &nbsp; Recruitment <span style="color:#0052FF;">ⓡ</span>  <br />
+					    &nbsp; Recruit <span style="color:#0052FF;">ⓡ</span>  <br />
 						<br />
 					</p>
 					
-					<div class="admin_page" style="top:20%; left:90%">
-    					<a href="insertWorks" target="" rel="noreferrer">Post New +</a>
+					<div class="admin_page" style="top:28%; left:90%">
+    					<a href="insertRecruit" target="" rel="noreferrer">Post New +</a>
 					</div>
 					
 
 					
 		<div class="container" align="center"><br>
-			<img src="uploadfile/1920_S19-31 2.jpg" alt="" />
 			
-		<!-- <div id="barba-wrapper" aria-live="polite">
+			<div id="barba-wrapper" aria-live="polite">
 			<div class="barba-container" data-namespace="work" style="visibility:visible;">
 				<main class="main" data-header-color="black">
 					<section class="info__inner" id="main-work">
@@ -75,12 +74,11 @@
 						
 							<ul class="work-list is-type2 js-infinite">
 								
-								<li th:each="works, state : ${pagedResult.getContent()}" class="work-list__item">
-								<br /><br />
-									<a th:href="@{/getWorks(seq=${works.seq})}">
-											<img th:src="@{'uploadfile/1920_S19-31 2.jpg" alt="" />
-											<br /><br />
-											<h2 th:text="${works.title}" > </h2>
+								<li th:each="recruit : ${recruitList}" class="work-list__item">
+								<br />
+									<a th:href="@{/getRecruit(job=${recruit.job})}">
+										<img th:src="@{uploadfile/hidasangyo-hidaweb-2017_thumb_yoko.jpg}" alt="" /><br /><br />
+										<h2 th:text="${recruit.job}" ></h2>
 									</a>
 								</li>
 								
@@ -90,9 +88,7 @@
 					</section>
 				</main>
 			</div>
-		</div> -->
-			
-			<br /><br /><br />
+		</div>
 			
 			
 			
@@ -100,7 +96,7 @@
 			
 	</div>
 			
-			<div class="admin_page" style="top:100%; left:93%">
+			<div class="admin_page" style="top:95%; left:93%">
     			<a href="admin" target="" rel="noreferrer">Admin</a>
 			</div>
 				
@@ -113,7 +109,6 @@
 		
 		
 		<footer id="foot" style="color:grey; text-align:center;">
-			<br /><br /><br />
             <p class="copyright">copyright © 2023 Yeoblee Inc. All rights reserved.
             <br />&nbsp;</p>
             

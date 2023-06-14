@@ -2,17 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Studio Yeoblee 𖣃 Works</title>
+<title>Studio Yeoblee 𖣃 Modify</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 <link href="/css/common.css" rel="stylesheet" />
-<link href="/css/works.css" rel="stylesheet" />
 <script src="/js/index.js" defer></script>
 <script src="/js/app.js" defer></script>
 <style>
 *{font-family: 'Roboto', sans-serif;}
 </style>
+
 </head>
 <body>
 	<div id="__next" data-reactroot>
@@ -45,83 +45,60 @@
 			</nav>
 		</header>
 		
-		
-		
-		
-		
 		<main class="main" style="--background: rgb (255,255,255);">
 			<section class="info" id="informations" data-background="f8d9d2">
 				<div class="info__inner">
 					<p class="info__text" style="text-align:center;">
 						<br />
-					    &nbsp; Works <span style="color:#0052FF;">ⓦ</span>  <br />
+					    &nbsp;&nbsp; Modify <span style="color:#0052FF;">±</span>  <br />
 						<br />
 					</p>
 					
-					<div class="admin_page" style="top:20%; left:90%">
-    					<a href="insertWorks" target="" rel="noreferrer">Post New +</a>
-					</div>
-					
-
-					
 		<div class="container" align="center"><br>
-
+		
+			<form th:action="updateMember" method="post">
 			
-		<div id="barba-wrapper" aria-live="polite">
-			<div class="barba-container" data-namespace="work" style="visibility:visible;">
-				<main class="main" data-header-color="black">
-					<section class="info__inner" id="main-work">
-						<div class="section-inner is-fluid2">
-						
-							<ul class="work-list is-type2 js-infinite">
-								
-								<li th:each="works, state : ${pagedResult.getContent()}" class="work-list__item">
-								<br />
-									<a th:href="@{/getWorks(seq=${works.seq})}">
-											<img th:src="@{'uploadfile/' + ${works.fileName}}" alt="" />
-											<br /><br />
-											<h2 th:text="${works.title}" > </h2>
-									</a>
-								</li>
-								
-							</ul>
-							
-						</div>
-					</section>
-				</main>
+ 				<div class="">
+					<input type="text" class="rounded-input" name="id" th:value="${member.id}" placeholder="USER ID" readonly/> <br /> <br />
+					<input type="text" class="rounded-input" name="name" th:value="${member.name}" placeholder="NAME"/> <br /> <br />
+					<input type="password" class="rounded-input" name="password" th:value="${member.password}" placeholder="PASSWORD" /> <br /> <br />
+					<input type="text" class="rounded-input" name="telephone" th:value="${member.telephone}" placeholder="TELEPHONE"/> <br /> <br />
+					<input type="text" class="rounded-input" name="role" placeholder="AUTHORITY"/> <br /> <br /> <br />
+					
+					<input type="submit" class="btn-submit" value="Modify" style="border: none; background:#fff; font-weight: bold"> &nbsp;&nbsp;
+					
+					<a th:href="@{/deleteMember(id=${member.id},
+												curPage=${session.pagingInfo.curPage},
+												rowSizePerPage=${session.pagingInfo.rowSizePerPage},
+												searchType=${session.pagingInfo.searchType},
+												searchWord=${session.pagingInfo.searchWord})}"
+						 class="btn-submit" style="border: none; font-weight: bold">Delete</a> &nbsp;
+						 
+				</div>	
+				
+				
+			</form>
 			</div>
-		</div>
 			
-			<br /><br /><br />
-			
+			</div>
 			
 			
-		</div>
-			
-	</div>
-			
-			<div class="admin_page" style="top:100%; left:93%">
+			<div class="admin_page" style="top:96%; left:93%">
     			<a href="admin" target="" rel="noreferrer">Admin</a>
 			</div>
+			
 				
 			</section>
 		</main>
 		
-		
-		
-		
-		
-		
-		<footer id="foot" style="color:grey; text-align:center;">
-			<br /><br /><br />
-            <p class="copyright">copyright © 2023 Yeoblee Inc. All rights reserved.
-            <br />&nbsp;</p>
-            
-        </footer>
-		
-		</div>
-		
-		
+	<footer id="foot" style="color:grey; text-align:center;">
+		<br />
+		<br />
+        <p class="copyright">copyright © 2023 Yeoblee Inc. All rights reserved.
+    	<br />&nbsp;</p>
+    </footer>
+    
+	</div>
 
 </body>
 </html>
