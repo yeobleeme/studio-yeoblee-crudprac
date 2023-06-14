@@ -53,34 +53,27 @@
 				<div class="info__inner">
 					<p class="info__text" style="text-align:center;">
 						<br />
-					    Recruit List <span style="color:#0052FF;">±</span>&nbsp; <br />
+					    Recruitment List <span style="color:#0052FF;">±</span>&nbsp;&nbsp; <br />
 						<br />
 					</p>
 					
 		<div class="" align="center">		
 		  <div class="">
-		    <table class="" style="text-align:left; width:70%;">
+		    <table class="" style="text-align:left; width:50%;">
 		      <thead class="" style="height: 50px">
-		        <th style="width: 5%;">NO</th>
-		        <th style="width: 10%;">ID</th>
-		        <th style="width: 13%;">NAME</th>
-		        <th style="width: 13%;">TEL</th>
-		        <th style="width: 10%;">AUTHORITY</th>
-		        <th style="width: 7%; text-align: center;">DELETE</th>
+		        <th style="width: 3%;">NO</th>
+		        <th style="width: 8%;">JOB</th>
+		        <th style="width: 5%;">DEADLINE</th>
+		        <th style="width: 5%; text-align: center;">DELETE</th>
 		      </thead>
 		      <tbody>
-		        <tr class="member_list_text" th:each="member, state : ${pagedResult.getContent()}" style="height: 38px">
-		          <td th:text="${state.count + (cp * ps)}"></td>
-		     	  <td><a th:href="@{/updateMember(id=${member.id})}" th:text="${member.id}"></a></td>
-		     <!-- <td th:text="${member.name}"></td>
-		          <td th:text="${member.telephone}"></td>
-		          <td th:text="${member.role}"></td> -->
-		     	  <td><a th:href="@{/updateMember(id=${member.id})}" th:text="${member.name}"></a></td>
-		          <td><a th:href="@{/updateMember(id=${member.id})}" th:text="${member.telephone}"></a></td>
-		          <td><a th:href="@{/updateMember(id=${member.id})}" th:text="${member.role}"></a></td>
+		        <tr class="member_list_text" th:each="recruit, recruitStat : ${recruitList}" style="height: 38px">
+		          <td th:text="${recruitStat.index + 1}"></td>
+		     	  <td><a th:href="@{/updateRecruit(job=${recruit.job})}" th:text="${recruit.job}"></a></td>
+		     	  <td><a th:href="@{/updateRecruit(job=${recruit.job})}" th:text="${recruit.ddl}"></a></td>
 		          <td style="text-align: center;"> 
-  				  <a th:href="@{/deleteMember(id=${member.id})}" 
-  				  	 th:onclick="return showConfirm('Are you sure to delete this member?')">
+  				  <a th:href="@{/deleteRecruit(job=${recruit.job})}" 
+  				  	 onclick="return showConfirm('Are you sure to delete this post?')">
   				  	 <span class="material-symbols-outlined">delete</span>
   				  </a>
 				  </td>

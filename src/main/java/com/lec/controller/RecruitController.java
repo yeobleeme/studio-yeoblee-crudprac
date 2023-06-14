@@ -43,7 +43,8 @@ public class RecruitController {
 	
 	@GetMapping("/adminRecruitList")
 	public String adminRecruitView(Model model, Recruit recruit) {
-		model.addAttribute("recruit", recruitService.getRecruitList());
+		List<Recruit> recruitList = recruitService.getRecruitList();
+	    model.addAttribute("recruitList", recruitList);
 		return "recruit/adminRecruitList";
 	}
 	
@@ -75,9 +76,7 @@ public class RecruitController {
 	
 	@GetMapping("/deleteRecruit")
 	public String deleteRecruit(Member member, Recruit recruit) {
-		if(member.getId() == null) {
-			return "redirect:login";
-		}
+		
 		recruitService.deleteRecruit(recruit);
 		return "redirect:recruit";
 	}

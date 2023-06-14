@@ -56,7 +56,7 @@
 					
 		<div class="container" align="center"><br>
 		
-			<form th:action="updateMember" method="post">
+			<form th:action="updateRecruit" method="post">
 			
  				<div class="">
 					<input type="text" class="rounded-input" name="id" th:value="${member.id}" placeholder="USER ID" readonly/> <br /> <br />
@@ -67,11 +67,7 @@
 					
 					<input type="submit" class="btn-submit" value="Modify" style="border: none; background:#fff; font-weight: bold"> &nbsp;&nbsp;
 					
-					<a th:href="@{/deleteMember(id=${member.id},
-												curPage=${session.pagingInfo.curPage},
-												rowSizePerPage=${session.pagingInfo.rowSizePerPage},
-												searchType=${session.pagingInfo.searchType},
-												searchWord=${session.pagingInfo.searchWord})}"
+					<a th:href="@{/deleteRecruit(job=${recruit.job}}"
 						 class="btn-submit" style="border: none; font-weight: bold">Delete</a> &nbsp;
 						 
 				</div>	
