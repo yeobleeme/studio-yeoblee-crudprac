@@ -544,8 +544,10 @@ main {
   'FILL' 0,
   'wght' 600,
   'GRAD' 0,
-  'opsz' 48
+  'opsz' 48;
+  color:#6699cc;
 }
+
 
 .material-symbols-outlined:hover {
   color: red;

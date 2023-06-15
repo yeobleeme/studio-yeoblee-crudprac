@@ -187,7 +187,7 @@ public class WorksController {
 		Works works = new Works();
 		works.setSeq(id);
 		worksService.deleteWorks(works);
-		return "forward:getWorksList";
+		return "forward:adminWorksList";
 	}
 	
 	

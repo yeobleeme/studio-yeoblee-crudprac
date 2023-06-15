@@ -83,7 +83,7 @@ public class RecruitController {
 	public String deleteRecruit(Member member, Recruit recruit) {
 		
 		recruitService.deleteRecruit(recruit);
-		return "redirect:recruit";
+		return "redirect:adminRecruitList";
 	}
 	
 
