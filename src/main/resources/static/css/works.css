@@ -24,13 +24,8 @@
 .work-list__item {
   background-color: #fff;
   padding: 10px;
-  /* border: 0.1px solid grey; */
 }
 
-/* .work-list__item:hover {
-  border: 0.5px solid #ECECEC;
-  border-radius: 20px;
-} */
 
 .work-list__item:hover img {
   transform: scale(1.1);

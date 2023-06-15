@@ -2,6 +2,8 @@ package com.lec.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
@@ -49,9 +51,14 @@ public class RecruitController {
 	}
 	
 	@GetMapping("/insertRecruit")
-	public String getInsertRecruit() {
-		return "recruit/insertRecruit";
-	}
+	public String getInsertRecruit(Model model, HttpSession session) {
+		Member member = (Member) session.getAttribute("member");
+		 if (member != null && "ADMIN".equals(member.getRole())) {
+	            return "recruit/insertRecruit";
+	        } else {
+	            return "info/accessDenied";
+	        }
+		}
 	
 	@PostMapping("insertRecruit")
 	public String insertRecruit(Recruit recruit) {
@@ -61,15 +68,13 @@ public class RecruitController {
 	
 	@GetMapping("/updateRecruit")
 	public String updateRecruit(Recruit recruit, Model model) {
-		model.addAttribute("works", recruitService.getRecruit(recruit));
+		model.addAttribute("recruit", recruitService.getRecruit(recruit));
 		return "recruit/updateRecruit";
 	}
 	
 	@PostMapping("/updateRecruit")
 	public String updateRecruit(Member member, Recruit recruit) {
-		if(member.getId() == null) {
-			return "redirect:login";
-		}
+		
 		recruitService.updateRecruit(recruit);
 		return "redirect:recruit";
 	}

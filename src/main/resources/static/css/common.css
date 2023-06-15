@@ -70,7 +70,8 @@ sup {
 }
 
 img {
-    border-style: none
+    border-style: none;
+    border: none;
 }
 
 button,input,optgroup,select,textarea {

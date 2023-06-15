@@ -54,25 +54,23 @@
 						<br />
 					</p>
 					
-		<div class="container" align="center"><br>
+		<div class="container" align="center">
 		
 			<form th:action="updateRecruit" method="post">
-			
+				<br />
  				<div class="">
-					<input type="text" class="rounded-input" name="id" th:value="${member.id}" placeholder="USER ID" readonly/> <br /> <br />
-					<input type="text" class="rounded-input" name="name" th:value="${member.name}" placeholder="NAME"/> <br /> <br />
-					<input type="password" class="rounded-input" name="password" th:value="${member.password}" placeholder="PASSWORD" /> <br /> <br />
-					<input type="text" class="rounded-input" name="telephone" th:value="${member.telephone}" placeholder="TELEPHONE"/> <br /> <br />
-					<input type="text" class="rounded-input" name="role" placeholder="AUTHORITY"/> <br /> <br /> <br />
-					
-					<input type="submit" class="btn-submit" value="Modify" style="border: none; background:#fff; font-weight: bold"> &nbsp;&nbsp;
-					
+					<input type="text" class="rounded-input" name="job" th:value="${recruit.job}" placeholder="JOB AND POSITION" readonly style="width:518px"/><br /><br />
+					<textarea name="dsc" class="rounded-input" cols="50" rows="5" th:text="${recruit.dsc}" placeholder="JOB DESCRIPTION"></textarea><br /><br />
+					<input type="text" class="rounded-input" name="qlf" th:value="${recruit.qlf}" placeholder="QUALIFICATION" style="width:518px"/><br /><br />
+					<input type="text" class="rounded-input" name="loc" th:value="${recruit.loc}" placeholder="LOCATION" style="width:518px"/><br /><br />
+					<input type="text" class="rounded-input" name="nor" th:value="${recruit.nor}" placeholder="NUMBER" style="width:518px"/><br /><br />
+					<input type="text" class="rounded-input" name="prc" th:value="${recruit.prc}" placeholder="PROCESS" style="width:518px"/><br /><br />
+					<input type="text" class="rounded-input" name="hta" th:value="${recruit.hta}" placeholder="HOW TO APPLY" style="width:518px"/><br /><br />
+					<input type="text" class="rounded-input" name="ddl" th:value="${recruit.ddl}" placeholder="DEADLINE" style="width:518px"/><br /><br /><br />
+					<input type="submit" class="btn-submit" value="Modify" style="border: none; background:#fff; font-weight: bold"> &nbsp;&nbsp;&nbsp;&nbsp;
 					<a th:href="@{/deleteRecruit(job=${recruit.job}}"
-						 class="btn-submit" style="border: none; font-weight: bold">Delete</a> &nbsp;
-						 
-				</div>	
-				
-				
+						 class="btn-submit" style="border: none; font-weight: bold">Delete</a>
+				</div>					
 			</form>
 			</div>
 			
@@ -88,8 +86,7 @@
 		</main>
 		
 	<footer id="foot" style="color:grey; text-align:center;">
-		<br />
-		<br />
+		<br /><br /><br /><br /><br /><br /><br />
         <p class="copyright">copyright © 2023 Yeoblee Inc. All rights reserved.
     	<br />&nbsp;</p>
     </footer>

@@ -77,7 +77,7 @@
 								<li th:each="recruit : ${recruitList}" class="work-list__item">
 								<br />
 									<a th:href="@{/getRecruit(job=${recruit.job})}">
-										<img th:src="@{uploadfile/hidasangyo-hidaweb-2017_thumb_yoko.jpg}" alt="" /><br /><br />
+										<img th:src="@{uploadfile/recruit.jpeg}" alt="" /><br /><br />
 										<h2 th:text="${recruit.job}" ></h2>
 									</a>
 								</li>
@@ -96,7 +96,7 @@
 			
 	</div>
 			
-			<div class="admin_page" style="top:95%; left:93%">
+			<div class="admin_page" style="top:90%; left:93%">
     			<a href="admin" target="" rel="noreferrer">Admin</a>
 			</div>
 				
