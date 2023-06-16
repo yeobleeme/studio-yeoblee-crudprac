@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Studio Yeoblee 𖣃 Admin Product</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<link href="/css/common.css" rel="stylesheet" />
+<script src="/js/index.js" defer></script>
+<script src="/js/app.js" defer></script>
+<style>
+*{font-family: 'Roboto', sans-serif;}
+</style>
+<script th:inline="javascript">
+ function showConfirm(message) {return confirm(message);}
+</script>
+</head>
+<body>
+	<div id="__next" data-reactroot>
+		<header class="header">
+			<div class="header__section">
+				<div class="header__title">
+					<a href="/">&nbsp;Studio Yeoblee&nbsp;</a>
+				</div>
+				<div class="header__menu">
+					<ul class="header__menu__list">
+						<li class="header__menu__item active">
+						<a href="/"><span>&nbsp;HELLO&nbsp;&nbsp;&nbsp;안녕&nbsp;&nbsp;&nbsp;Bonjour
+						&nbsp;&nbsp;こんにちは&nbsp;&nbsp;&nbsp;Hola&nbsp;&nbsp;&nbsp;GetenTag&nbsp;</span></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+			<nav class="menu">
+				<ul class="menu__list">
+					<li class="menu__item"><a href="info" class="menu_link">&nbsp;Informations&nbsp;</a></li>&nbsp;
+					<li class="menu__item"><a href="getWorksList" class="menu_link">&nbsp;Works&nbsp;</a></li>&nbsp;
+					<li class="menu__item"><a href="contact" class="menu_link">&nbsp;Contact&nbsp;</a></li>&nbsp;
+					<li class="menu__item">
+					<a th:href="@{/login}" class="menu_link" th:if="${session.member == null}">&nbsp;Sign In&nbsp;</a>
+       				<a th:href="@{/logout}" class="menu_link" th:if="${session.member != null}">&nbsp;Sign Out&nbsp;</a>
+					</li>&nbsp;
+					<li class="menu__item"><a href="onlineshop" class="menu_link">&nbsp;Online Shop&nbsp;</a></li>
+				</ul>
+			</nav>
+		</header>
+		
+		<main class="main" style="--background: rgb (255,255,255);">
+			<section class="info" id="informations" data-background="f8d9d2">
+				<div class="info__inner">
+					<p class="info__text" style="text-align:center;">
+						<br />
+					    Product List <span style="color:#0052FF;">±</span>&nbsp; <br />
+						<br />
+					</p>
+					
+					<div class="admin_page" style="top:28%; left:90%">
+    					<a href="admin" target="" rel="noreferrer">Regist New</a>
+					</div>	
+					
+		
+		<div class="" align="center">		
+		  <div class="">
+		    <table class="" style="text-align:left; width:80%;">
+		      <thead class="" style="height: 52px">
+		        <th style="width: 4%;">NO</th>
+		        <th style="width: 7%;">P_ID</th>
+		        <th style="width: 8%;">P_NAME</th>
+		        <th style="width: 7%;">P_TYPE</th>
+		        <th style="width: 7%;">P_PRICE</th>
+		        <th style="width: 5%; text-align: center;">P_SOLD</th>
+		        <th style="width: 5%; text-align: center;">P_INV</th>
+		        <th style="width: 5%; text-align: center;">DELETE</th>
+		      </thead>
+		      <tbody>
+		       <tr class="member_list_text" style="height: 42px">
+		          <td>1</td>
+		          <td>001234</td>
+		          <td>TEST_01</td>
+		          <td>FNT</td>
+		          <td>300,000 KRW</td>
+		          <td style="text-align: center;">0</td>
+		          <td style="text-align: center;">1</td>
+		          <td style="text-align: center;"><span class="material-symbols-outlined">delete</span></td>
+		        </tr>
+		        <tr class="member_list_text" style="height: 42px">
+		          <td>2</td>
+		          <td>001235</td>
+		          <td>TEST_02</td>
+		          <td>FNT</td>
+		          <td>300,000 KRW</td>
+		          <td style="text-align: center;">0</td>
+		          <td style="text-align: center;">1</td>
+		          <td style="text-align: center;"><span class="material-symbols-outlined">delete</span></td>
+		        </tr>
+		        <tr class="member_list_text" style="height: 42px">
+		          <td>3</td>
+		          <td>001236</td>
+		          <td>TEST_03</td>
+		          <td>FNT</td>
+		          <td>350,000 KRW</td>
+		          <td style="text-align: center;">0</td>
+		          <td style="text-align: center;">1</td>
+		          <td style="text-align: center;"><span class="material-symbols-outlined">delete</span></td>
+		        </tr>
+		        <tr class="member_list_text" style="height: 42px">
+		          <td>4</td>
+		          <td>001237</td>
+		          <td>TEST_04</td>
+		          <td>FNT</td>
+		          <td>350,000 KRW</td>
+		          <td style="text-align: center;">0</td>
+		          <td style="text-align: center;">1</td>
+		          <td style="text-align: center;"><span class="material-symbols-outlined">delete</span></td>
+		        </tr>
+		        <tr class="member_list_text" style="height: 42px">
+		          <td>5</td>
+		          <td>001238</td>
+		          <td>TEST_05</td>
+		          <td>FNT</td>
+		          <td>370,000 KRW</td>
+		          <td style="text-align: center;">0</td>
+		          <td style="text-align: center;">1</td>
+		          <td style="text-align: center;"><span class="material-symbols-outlined">delete</span></td>
+		        </tr>
+		        <tr class="member_list_text" style="height: 42px">
+		          <td>6</td>
+		          <td>001239</td>
+		          <td>TEST_06</td>
+		          <td>FNT</td>
+		          <td>370,000 KRW</td>
+		          <td style="text-align: center;">0</td>
+		          <td style="text-align: center;">1</td>
+		          <td style="text-align: center;"><span class="material-symbols-outlined">delete</span></td>
+		        </tr>
+		        <tr class="member_list_text" style="height: 42px">
+		          <td>7</td>
+		          <td>001240</td>
+		          <td>TEST_07</td>
+		          <td>FNT</td>
+		          <td>320,000 KRW</td>
+		          <td style="text-align: center;">0</td>
+		          <td style="text-align: center;">1</td>
+		          <td style="text-align: center;"><span class="material-symbols-outlined">delete</span></td>
+		        </tr>
+		        <tr class="member_list_text" style="height: 42px">
+		          <td>8</td>
+		          <td>001241</td>
+		          <td>TEST_08</td>
+		          <td>FNT</td>
+		          <td>320,000 KRW</td>
+		          <td style="text-align: center;">0</td>
+		          <td style="text-align: center;">1</td>
+		          <td style="text-align: center;"><span class="material-symbols-outlined">delete</span></td>
+		        </tr>
+		      </tbody>
+		    </table>
+		  </div>	
+		</div>
+		<br /><br /><br /><br /><br />
+	
+	</div>		
+			
+			
+			<div class="admin_page" style="top:99%; left:93%">
+    			<a href="admin" target="" rel="noreferrer">Admin</a>
+			</div>
+			
+				
+			</section>
+		</main>			
+				
+				
+		<footer id="foot" style="color:grey; text-align:center;">
+		<br /><br /><br /><br /><br /><br /><br />
+            <p class="copyright">copyright © 2023 Yeoblee Inc. All rights reserved.
+            <br />&nbsp;</p>
+        </footer>
+		
+	</div>
+
+</body>
+</html>
+
+
+
+
+

@@ -60,12 +60,13 @@
 		
 		<div class="" align="center">		
 		  <div class="">
-		    <table class="" style="text-align:left; width:70%;">
+		    <table class="" style="text-align:left; width:80%;">
 		      <thead class="" style="height: 52px">
 		        <th style="width: 5%;">NO</th>
 		        <th style="width: 10%;">WRITER</th>
 		        <th style="width: 10%;">TITLE</th>
-		        <th style="width: 17%;">FILE</th>
+		        <th style="width: 10%;">FILE</th>
+		        <th style="width: 8%; text-align: center;">VIEWS</th>
 		        <th style="width: 8%;">DATE</th>
 		        <th style="width: 7%; text-align: center;">DELETE</th>
 		      </thead>
@@ -75,6 +76,7 @@
 		          <td><a th:href="@{/updateWorks(seq=${work.seq})}" th:text="${work.writer}"></a></td>
 		          <td><a th:href="@{/updateWorks(seq=${work.seq})}" th:text="${work.title}"></a></td>
 		          <td><a th:href="@{/updateWorks(seq=${work.seq})}" th:text="${work.fileName}"></a></td>
+		          <td style="text-align: center;"><a th:href="@{/updateWorks(seq=${work.seq})}" th:text="${work.cnt}"></a></td>
 		          <td><a th:href="@{/updateWorks(seq=${work.seq})}" th:text="${#dates.format(work.createDate, 'yyyy.MM.dd')}"></a></td>
 		          <td style="text-align: center;"> 
   				  <a th:href="@{/deleteWorks(id=${work.seq})}" 
@@ -87,12 +89,12 @@
 		    </table>
 		  </div>	
 		</div>
-		
+		<br /><br /><br /><br /><br />
 	
 	</div>		
 			
 			
-			<div class="admin_page" style="top:96%; left:93%">
+			<div class="admin_page" style="top:99%; left:93%">
     			<a href="admin" target="" rel="noreferrer">Admin</a>
 			</div>
 			
