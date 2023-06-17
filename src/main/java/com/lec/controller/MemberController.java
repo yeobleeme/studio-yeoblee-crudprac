@@ -26,7 +26,7 @@ public class MemberController {
 	public PagingInfo pagingInfo = new PagingInfo();
 	
 	@GetMapping("/getMemberList")
-	public String getMemberList(Model model, 
+	public String getMemberList(Model model,
 			@RequestParam(defaultValue = "0") int curPage,
 			@RequestParam(defaultValue = "10") int rowSizePerPage,
 			@RequestParam(defaultValue = "name") String searchType,
