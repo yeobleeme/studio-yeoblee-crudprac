@@ -52,7 +52,6 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public void deleteMember(Member member) {
-		// delete 전 alert 생성
 		memberRepository.deleteById(member.getId());
 	}
 
