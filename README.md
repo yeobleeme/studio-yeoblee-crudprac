@@ -1,4 +1,4 @@
 # personal-project
-# crud-practice
-# Studio Yeoblee Web
-# Spring Boot
+# Studio Yeoblee Web Application
+
+<img src="s_img/index.png">
