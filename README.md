@@ -29,6 +29,5 @@
 <img src="s_img/recruitmodify.png">
 <br><br>
 <img src="s_img/shop.png">
-<img src="s_img/shoplike.png">
 <img src="s_img/productlist.png">
 <br><br>
